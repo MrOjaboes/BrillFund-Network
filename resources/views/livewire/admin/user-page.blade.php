@@ -14,6 +14,15 @@
         <div class="row py-1">
             <div class="col-md-1"></div>
             <div class="col-md-10">
+                <div class="row">
+                    <div class="col-md-6">
+                        <form action="">
+                            <div class="form-group">
+                                <input type="text" placeholder="Search User by username...." class="form-control" name="" id="">
+                            </div>
+                        </form>
+                    </div>
+                </div>
                 @if (session()->has('message'))
                     <div class="alert alert-success">
                         <a href="#" class="close text-white" data-dismiss="alert" aria-label="close">&times;</a>
@@ -45,15 +54,15 @@
                    @endphp
                         @foreach ($users as $data)
                             <tr>
-                                
-                                <td>{{ $i }}</td>                                
+
+                                <td>{{ $i }}</td>
                                 <td>{{ $data->name }}</td>
-                                <td>{{ $data->email }}</td>                                
-                                <td>{{ $data->email }}</td>                                
-                                <td>{{ $data->email }}</td>                                
+                                <td>{{ $data->email }}</td>
+                                <td>{{ $data->email }}</td>
+                                <td>{{ $data->email }}</td>
                                 <td>  {{ \Carbon\Carbon::parse($data->created_at)->format('d D, M Y') }} </td>
                                 <td><a href="{{ route('admin.usersDetails',$data->id) }}" class="btn btn-outline-secondary">Details</a></td>
-                                
+
                             </tr>
                             @php
                             $i++;

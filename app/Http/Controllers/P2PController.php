@@ -21,6 +21,11 @@ class P2PController extends Controller
     }
     public function store(Request $request)
     {
+        $activity_balance = ActivityBalance::where('user_id', auth()->user()->id)->sum('balance');
+        //dd($activity_balance);
+        // if ($activity_balance < 10000) {
+        //     return redirect()->back()->with('error', 'Insufficient balnce to register User!');
+        // }
         $request->validate([
             'first_name' => 'required',
             'last_name' => 'required',
@@ -38,9 +43,9 @@ class P2PController extends Controller
             'direct_balance' => 4.63,
             'naira_equilvalent' => 3800,
         ]);
-        $direct_balance = AffiliateBalance::whereDate('created_at', $current_date)->where('user_id', auth()->user()->id)->sum('direct_balance');
-        $indirect_balance = AffiliateBalance::whereDate('created_at', $current_date)->where('user_id', auth()->user()->id)->sum('indirect_balance');
-        $indirect2_balance = AffiliateBalance::whereDate('created_at', $current_date)->where('user_id', auth()->user()->id)->sum('indirect2_balance');
+        $direct_balance = AffiliateBalance::where('user_id', auth()->user()->id)->sum('direct_balance');
+        $indirect_balance = AffiliateBalance::where('user_id', auth()->user()->id)->sum('indirect_balance');
+        $indirect2_balance = AffiliateBalance::where('user_id', auth()->user()->id)->sum('indirect2_balance');
         $total = $direct_balance + $indirect_balance + $indirect2_balance;
         AffiliateBalance::where('user_id', auth()->user()->id)->update(['total' => $total]);
 
@@ -61,20 +66,16 @@ class P2PController extends Controller
             'balance' => '3000BP',
             'description' => 'Welcome Bonus for ' . $request->username,
         ]);
-        $deposit = Deposits::whereDate('created_at', $current_date)->sum('balance');
+        AffiliateBalance::create([
+            'user_id' => $user->id,
+        ]);
+        
+        $deposit = Deposits::where('user_id', $user->id)->sum('balance');
         ActivityBalance::create([
             'user_id' => $user->id,
             'balance' => $deposit,
         ]);
-        //Affiliate Balance
-        AffiliateBalance::create([
-            'user_id' => $user->id,
-        ]);
-        $direct_balance = AffiliateBalance::whereDate('created_at', $current_date)->where('user_id', $user->id)->sum('direct_balance');
-        $indirect_balance = AffiliateBalance::whereDate('created_at', $current_date)->where('user_id', $user->id)->sum('indirect_balance');
-        $indirect2_balance = AffiliateBalance::whereDate('created_at', $current_date)->where('user_id', $user->id)->sum('indirect2_balance');
-        $total = $direct_balance + $indirect_balance + $indirect2_balance;
-        AffiliateBalance::where('user_id', $user->id)->update(['total' => $total]);
+
         Profile::create([
             'user_id' => $user->id,
         ]);

@@ -24,20 +24,7 @@
                     </div>
                     <div class="col-md-5"></div>
                 </div>
-                <div class="row">
-                    @if (session()->has('message'))
-                    <div class="col-md-12 mt-3 position-relative">
-                        <div class="box">
-                            <div class="box-body">
-                                <div style="background:#18d26b;color:white;" class="alert">
-                                    <a href="#" class="close text-white" data-dismiss="alert" aria-label="close">&times;</a>
-                                    {{ session('message') }}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @endif
-                </div>
+
                 {{-- First Section --}}
                 <div class="row">
                     <div class="col-6">
@@ -53,7 +40,28 @@
                         </div>
                     </div>
                 </div>
-                <div style="margin-bottom: 5%"></div>
+                <div style="margin-bottom: 3%"></div>
+                <div class="row">
+                    @if (session()->has('message'))
+                        <div class="col-md-6 mt-3 position-relative">
+                            <div style="background:#18d26b;color:white;" class="alert">
+                                <a href="#" class="close text-white" data-dismiss="alert"
+                                    aria-label="close">&times;</a>
+                                {{ session('message') }}
+                            </div>
+                        </div>
+                    @endif
+                    @if (session()->has('error'))
+                        <div class="col-md-6 mt-3 position-relative">
+                            <div style="background:#d21818;color:white;" class="alert">
+                                <a href="#" class="close text-white" data-dismiss="alert"
+                                    aria-label="close">&times;</a>
+                                {{ session('error') }}
+                            </div>
+                        </div>
+                    @endif
+                </div>
+                <div style="margin-bottom: 3%"></div>
                 <form class="form-horizontal form-element" action="{{ route('p2p.store') }}" method="post">
                     @csrf
                     <div class="form-group row">

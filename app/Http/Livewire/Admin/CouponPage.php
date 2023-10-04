@@ -44,6 +44,7 @@ class CouponPage extends Component
        // dd($count);
         CouponCode::create([
             'amount' => $validated['amount'],
+            'naira_equilvalent' => $validated['amount'] * 820,
             'code' => 'Admin/'.strtoupper(Str::random(5).$count), //substr(str_shuffle('123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, 10)
             'user_id' => auth()->user()->id,
         ]);

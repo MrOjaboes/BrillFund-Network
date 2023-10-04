@@ -82,7 +82,7 @@
 </head>
 
 <body class="hold-transition theme-primary">
-<div class="row mt-5 align-items-center pt-5 justify-content-md-center">
+<div class="row mt-5 align-items-center justify-content-md-center" style="padding-top: 5%">
     <div class="col-5">
         <img src="/FrontEnd/rockie/images/logo.svg" width="200" alt="">
     </div>

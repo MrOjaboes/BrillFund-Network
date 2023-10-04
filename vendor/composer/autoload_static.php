@@ -570,6 +570,7 @@ class ComposerStaticInitc5bb9c8e00ee7d3b448392718f880749
         'App\\Models\\DailyPost' => __DIR__ . '/../..' . '/app/Models/DailyPost.php',
         'App\\Models\\Deposits' => __DIR__ . '/../..' . '/app/Models/Deposits.php',
         'App\\Models\\DirectBalance' => __DIR__ . '/../..' . '/app/Models/DirectBalance.php',
+        'App\\Models\\Freelancing' => __DIR__ . '/../..' . '/app/Models/Freelancing.php',
         'App\\Models\\History' => __DIR__ . '/../..' . '/app/Models/History.php',
         'App\\Models\\Indirect2Balance' => __DIR__ . '/../..' . '/app/Models/Indirect2Balance.php',
         'App\\Models\\IndirectBalance' => __DIR__ . '/../..' . '/app/Models/IndirectBalance.php',

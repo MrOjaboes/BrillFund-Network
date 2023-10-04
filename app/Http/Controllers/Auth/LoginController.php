@@ -69,53 +69,15 @@ class LoginController extends Controller
                                     'status' => 1,
                                 ]);
 
-                       if (auth()->user()->package_id == 1) { //3500 $7
-                        Deposits::create([
+                         Deposits::create([
                             'user_id' => auth()->user()->id,
-                            'balance' => 0.4,
-                            'naira_equilvalent' => 0.4 * 500,
+                            'balance' => 300, 
                             'description' => 'Login Bonus For '.auth()->user()->name,
                             ]);
                             $deposit = Deposits::where('user_id',auth()->user()->id)->sum('balance');
                             ActivityBalance::where('user_id',auth()->user()->id)->update([
                                 'balance' => $deposit,
                                ]);
-
-                       }elseif (auth()->user()->package_id == 2) { //5000 $10
-                        Deposits::create([
-                            'user_id' => auth()->user()->id,
-                            'balance' => 0.6,
-                            'naira_equilvalent' => 0.6 * 500,
-                            'description' => 'Login Bonus For '.auth()->user()->name,
-                            ]);
-                            $deposit = Deposits::where('user_id',auth()->user()->id)->sum('balance');
-                            ActivityBalance::where('user_id',auth()->user()->id)->update([
-                                'balance' => $deposit,
-                               ]);
-                       }elseif (auth()->user()->package_id == 3) {  //7500 $15
-                        Deposits::create([
-                            'balance' => 0.4,
-                            'user_id' => auth()->user()->id,
-                            'naira_equilvalent' => 0.4 * 500,
-                            'description' => 'Login Bonus For '.auth()->user()->name,
-                            ]);
-                            $deposit = Deposits::where('user_id',auth()->user()->id)->sum('balance');
-                            ActivityBalance::where('user_id',auth()->user()->id)->update([
-                                'balance' => $deposit,
-                               ]);
-
-                       }elseif (auth()->user()->package_id == 4) { //12500 $25
-                        Deposits::create([
-                            'user_id' => auth()->user()->id,
-                            'balance' => 0.6,
-                            'naira_equilvalent' => 0.6 * 500,
-                            'description' => 'Login Bonus For '.auth()->user()->name,
-                            ]);
-                            $deposit = Deposits::where('user_id',auth()->user()->id)->sum('balance');
-                            ActivityBalance::where('user_id',auth()->user()->id)->update([
-                                'balance' => $deposit,
-                               ]);
-                       }
                       // return 'ok';
                     }
                     History::create([

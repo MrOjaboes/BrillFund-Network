@@ -65,6 +65,7 @@ return array(
     'App\\Models\\DailyPost' => $baseDir . '/app/Models/DailyPost.php',
     'App\\Models\\Deposits' => $baseDir . '/app/Models/Deposits.php',
     'App\\Models\\DirectBalance' => $baseDir . '/app/Models/DirectBalance.php',
+    'App\\Models\\Freelancing' => $baseDir . '/app/Models/Freelancing.php',
     'App\\Models\\History' => $baseDir . '/app/Models/History.php',
     'App\\Models\\Indirect2Balance' => $baseDir . '/app/Models/Indirect2Balance.php',
     'App\\Models\\IndirectBalance' => $baseDir . '/app/Models/IndirectBalance.php',

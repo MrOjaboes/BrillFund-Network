@@ -12,6 +12,7 @@ class CouponCode extends Model
         'code',
          'status',
          'amount',
+         'naira_equilvalent',
          'user_id',
     ];
 }

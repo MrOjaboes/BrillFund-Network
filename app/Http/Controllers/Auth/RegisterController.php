@@ -129,7 +129,7 @@ class RegisterController extends Controller
                 'balance' => '3000BP',
                 'description' => 'Welcome Bonus for ' . $request->username,
             ]);
-            $deposit = Deposits::whereDate('created_at', $current_date)->sum('balance');
+            $deposit = Deposits::where('user_id', $user->id)->sum('balance');
             ActivityBalance::create([
                 'user_id' => $user->id,
                 'balance' => $deposit,
@@ -164,12 +164,9 @@ class RegisterController extends Controller
             //             'direct_balance' => 4.63,
             //             'naira_equilvalent' => 3800,
             //         ]);
-            //         $direct_balance = AffiliateBalance::whereDate('created_at', $current_date)
-            //             ->where('user_id', $user_id)->sum('direct_balance');
-            //         $indirect_balance = AffiliateBalance::whereDate('created_at', $current_date)
-            //             ->where('user_id', $user_id)->sum('indirect_balance');
-            //         $indirect2_balance = AffiliateBalance::whereDate('created_at', $current_date)
-            //             ->where('user_id', $user_id)->sum('indirect2_balance');
+            //         $direct_balance = AffiliateBalance::where('user_id', $user_id)->sum('direct_balance');
+            //         $indirect_balance = AffiliateBalance::where('user_id', $user_id)->sum('indirect_balance');
+            //         $indirect2_balance = AffiliateBalance::where('user_id', $user_id)->sum('indirect2_balance');
             //         $total = $direct_balance + $indirect_balance + $indirect2_balance;
             //         AffiliateBalance::where('user_id', $user_id)->update(['total' => $total]);
             //     }
@@ -182,12 +179,9 @@ class RegisterController extends Controller
             //             'indirect_balance' => 0.24,
             //             'naira_equilvalent' => 0.24 * 820,
             //         ]);
-            //         $direct_balance = AffiliateBalance::whereDate('created_at', $current_date)
-            //             ->where('user_id', $userCheck->parent_user_id)->sum('direct_balance');
-            //         $indirect_balance = AffiliateBalance::whereDate('created_at', $current_date)
-            //             ->where('user_id', $userCheck->parent_user_id)->sum('indirect_balance');
-            //         $indirect2_balance = AffiliateBalance::whereDate('created_at', $current_date)
-            //             ->where('user_id', $userCheck->parent_user_id)->sum('indirect2_balance');
+            //         $direct_balance = AffiliateBalance::where('user_id', $userCheck->parent_user_id)->sum('direct_balance');
+            //         $indirect_balance = AffiliateBalance::where('user_id', $userCheck->parent_user_id)->sum('indirect_balance');
+            //         $indirect2_balance = AffiliateBalance::where('user_id', $userCheck->parent_user_id)->sum('indirect2_balance');
             //         $total = $direct_balance + $indirect_balance + $indirect2_balance;
             //         AffiliateBalance::where('user_id', $userCheck->parent_user_id)->update(['total' => $total]);
 
@@ -198,12 +192,9 @@ class RegisterController extends Controller
             //             'indirect2_balance' => 0.18,
             //             'naira_equilvalent' => 0.18 * 820,
             //         ]);
-            //         $direct_balance = AffiliateBalance::whereDate('created_at', $current_date)
-            //             ->where('user_id', $userCheck->user_id)->sum('direct_balance');
-            //         $indirect_balance = AffiliateBalance::whereDate('created_at', $current_date)
-            //             ->where('user_id', $userCheck->user_id)->sum('indirect_balance');
-            //         $indirect2_balance = AffiliateBalance::whereDate('created_at', $current_date)
-            //             ->where('user_id', $userCheck->user_id)->sum('indirect2_balance');
+            //         $direct_balance = AffiliateBalance::where('user_id', $userCheck->user_id)->sum('direct_balance');
+            //         $indirect_balance = AffiliateBalance::where('user_id', $userCheck->user_id)->sum('indirect_balance');
+            //         $indirect2_balance = AffiliateBalance::where('user_id', $userCheck->user_id)->sum('indirect2_balance');
             //         $total = $direct_balance + $indirect_balance + $indirect2_balance;
             //         AffiliateBalance::where('user_id', $userCheck->user_id)->update(['total' => $total]);
             //     }
@@ -229,7 +220,7 @@ class RegisterController extends Controller
             //         'balance' => '3000BP',
             //         'description' => 'Welcome Bonus for ' . $request->username,
             //     ]);
-            //     $deposit = Deposits::whereDate('created_at', $current_date)->sum('balance');
+            //     $deposit = Deposits::where('user_id', $user->id)->sum('balance');
             //     ActivityBalance::create([
             //         'user_id' => $user->id,
             //         'balance' => $deposit,
