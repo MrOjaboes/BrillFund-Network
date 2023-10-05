@@ -68,7 +68,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('home.codes') }}">
+                        <a href="{{ route('home.freelancing') }}">
                             <i data-feather="monitor"></i>
                             <span>Brill Freelancing</span>
                         </a>
@@ -93,60 +93,6 @@
                     </li>
 
 
-                    {{-- <li>
-                        <a href="{{ route('home.plans') }}">
-                            <i data-feather="chevrons-up"></i>
-                            <span>Upgrade Plan</span>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="{{ route('home.earning') }}">
-                            <i data-feather="activity"></i>
-                            <span>Earning History</span>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="{{route('home.dailypost') }}">
-                            <i data-feather="circle"></i>
-                            <span>Dailypost</span>
-
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="{{ route('home.token') }}">
-                            <i data-feather="gift"></i>
-                            <span>Token</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <i data-feather="gift"></i>
-                            <span>Courses</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('home.vtu') }}">
-                            <i data-feather="play"></i>
-                            <span>VTU</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('home.quiz') }}">
-                            <i data-feather="grid"></i>
-                            <span>Quiz</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i data-feather="git-pull-request"></i>
-                            <span>E-course</span>
-                        </a>
-                    </li> --}}
-
-
                 </ul>
 
                 <div class="sidebar-widgets">
@@ -167,12 +113,15 @@
 
 <style>
     .sidebar-menu li>a>span {
-
     color:  #898989;
     }
     .sidebar-menu>li>a>img {
-width: 3px;
+    width: 3px;
     color:#FE740E;
-
     }
+    .sidebar-menu>li>a>svg {
+
+    color:#FE740E;
+    }
+
 </style>

@@ -17,15 +17,16 @@ class P2PController extends Controller
     //
     public function index()
     {
-        return view('Clients.p2p_reg');
+        $activity_balance = ActivityBalance::where('user_id', auth()->user()->id)->sum('balance');
+        return view('Clients.p2p_reg',compact('activity_balance'));
     }
     public function store(Request $request)
     {
         $activity_balance = ActivityBalance::where('user_id', auth()->user()->id)->sum('balance');
         //dd($activity_balance);
-        // if ($activity_balance < 10000) {
-        //     return redirect()->back()->with('error', 'Insufficient balnce to register User!');
-        // }
+        if ($activity_balance < 10000) {
+            return redirect()->back()->with('error', 'Insufficient balnce to register User!');
+        }
         $request->validate([
             'first_name' => 'required',
             'last_name' => 'required',
@@ -59,6 +60,12 @@ class P2PController extends Controller
         $user->password = Hash::make($request->password);
         $user->referal_code = $url . $request->username;
         $user->save();
+        $token_amount = 10000;
+        $total_activity_balance = ActivityBalance::where('user_id', auth()->user()->id)->sum('balance');
+        $total =$total_activity_balance - $token_amount;
+        ActivityBalance::where('user_id', auth()->user()->id)->update([
+            'balance' => $total,
+        ]);
 
         //Credit Welcome Bonus
         Deposits::create([
@@ -69,7 +76,7 @@ class P2PController extends Controller
         AffiliateBalance::create([
             'user_id' => $user->id,
         ]);
-        
+
         $deposit = Deposits::where('user_id', $user->id)->sum('balance');
         ActivityBalance::create([
             'user_id' => $user->id,

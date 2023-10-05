@@ -24,20 +24,26 @@ class ProfileController extends Controller
        //dd($referal->name);
         return view('Clients.profile',compact('plan','referal'));
     }
+    public function updateProfilePhoto(Request $request)
+    {
+        $request->validate([
+           'photo' => 'required|mimes:png,jpg,jpeg|max:2048',
+        ]);
+        if ($request->hasFile('photo')) {
+                 $fileName = $request->file('photo')->getClientOriginalName();
+                $request->file('photo')->storeAs('Profiles/', $fileName,'public');
+           }
+        User::where('id',auth()->user()->id)->update([
+            "profile_photo" => $fileName,
+        ]);
+        return redirect()->back()->with('message','Profile Photo Updated Successfully!');
+    }
     public function updateProfile(Request $request)
     {
-        Profile::where('user_id',auth()->user()->id)->update([
-            'name' => $request->fullname,
-            'email' => $request->email,
-            'phone' => $request->phone,
-            'bank' => $request->bank,
-            'acct_number' => $request->acct_number,
-            'acct_name' => $request->acct_name,
-            'country' => $request->country,
-            'crpto_address' => $request->crpto_address,
-            'crpto_bank' => $request->crpto_bank,
+        User::where('id',auth()->user()->id)->update([
+            "lname" => $request->lname,
+            "name" => $request->name,
         ]);
-
         return redirect()->back()->with('message','Profile Updated Successfully!');
     }
     public function updateDetails(Request $request)

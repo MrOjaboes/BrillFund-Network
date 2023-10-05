@@ -15,6 +15,9 @@ class CreateAffiliateHistoriesTable extends Migration
     {
         Schema::create('affiliate_histories', function (Blueprint $table) {
             $table->id();
+            $table->longText('content')->nullable();//not
+            $table->string('type')->nullable();//not
+            $table->integer('user_id')->unsigned()->references('id')->on('users')->onDelete('SET NULL');
             $table->timestamps();
         });
     }

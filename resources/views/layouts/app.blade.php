@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="en">
 
 <!-- Mirrored from www.learnify.ng/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 19 Aug 2023 05:45:20 GMT -->
 <!-- Added by HTTrack -->

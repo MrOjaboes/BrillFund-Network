@@ -34,7 +34,7 @@
                                     <h3 style="margin-top: 18px">Activity Balance</h3>
                                 </div>
                                 <div class="d-flex justify-content-between w-p100">
-                                    <h3 style="margin-top:-20px">00</h3>
+                                    <h3 style="margin-top:-20px">{{ $activity_balance.'BP' }}</h3>
                                 </div>
                             </div>
                         </div>

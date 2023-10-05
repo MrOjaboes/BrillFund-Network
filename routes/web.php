@@ -80,6 +80,10 @@ Route::group(['middleware' => 'isAdmin', 'prefix' => 'admin'], function () {
     //Token Section
     Route::get('/token-inquiry', [App\Http\Controllers\TokenController::class, 'index'])->name('home.token');
     Route::post('/token-inquiry', [App\Http\Controllers\TokenController::class, 'store'])->name('token.store');
+
+    //Freelancing Section
+    Route::get('/freelancing', [App\Http\Controllers\FreelancingController::class, 'index'])->name('home.freelancing');
+    Route::post('/freelancing', [App\Http\Controllers\FreelancingController::class, 'store'])->name('freelancing.store');
     //Profile Mgt
 
     Route::get('/payout-details', [App\Http\Controllers\PayoutController::class, 'index'])->name('payout-details');
@@ -87,6 +91,7 @@ Route::group(['middleware' => 'isAdmin', 'prefix' => 'admin'], function () {
 
     //Profile Mgt
     Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'index'])->name('home.profile');
+    Route::post('/profile/photo', [App\Http\Controllers\ProfileController::class, 'updateProfilePhoto'])->name('home.profile.photo');
     Route::post('/profile', [App\Http\Controllers\ProfileController::class, 'updateProfile'])->name('home.profile.update');
     Route::post('/profile/password', [App\Http\Controllers\ProfileController::class, 'updatePassword'])->name('home.password.update');
     Route::post('/profile/details', [App\Http\Controllers\ProfileController::class, 'updateDetails'])->name('home.details.update');
