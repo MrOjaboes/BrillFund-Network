@@ -20,6 +20,7 @@ class User extends Authenticatable
         'fname',
         'lname',
         'contact',
+        'note',
         'name',
         'linkedin',
         'facebook',

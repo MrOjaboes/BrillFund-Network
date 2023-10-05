@@ -12,6 +12,7 @@ class CouponCode extends Model
         'code',
          'status',
          'amount',
+         'used_status',
          'naira_equilvalent',
          'user_id',
     ];

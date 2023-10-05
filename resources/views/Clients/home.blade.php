@@ -10,6 +10,7 @@
         </header>
 
         @include('layouts.Partials.sidebar')
+        @if (auth()->user()->status == 0)
         <div class="content-wrapper">
             <div class="container">
                 <!-- Main content -->
@@ -151,21 +152,16 @@
 
                         </div>
 
-
-
                     </div>
-
-
-
-
                 </div>
 
             </div>
         </div>
-
-
-
-
+        @else
+        <div class="text-center" style="padding: 15%">
+            <h3>Account currently In-active, Kindly Contact Admin for Account Activation!</h3>
+        </div>
+        @endif
         @include('layouts.Partials.bottombar')
 
     </div>

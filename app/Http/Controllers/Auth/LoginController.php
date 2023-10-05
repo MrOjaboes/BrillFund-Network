@@ -7,6 +7,7 @@ use App\Models\LoginCounts;
 use Illuminate\Http\Request;
 use App\Models\ActivityBalance;
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -49,15 +50,13 @@ class LoginController extends Controller
             'email' => 'required',
             'password' => 'required',
         ]);
-//dd($input);
+
+        //dd($input);
         if (auth()->attempt(array('email' => $input['email'], 'password' => $input['password']))) {
             if (auth()->user()->user_type == 1) {
                 return redirect()->route('admin');
                 //session()->flash('login', 'welcome');
             } elseif (auth()->user()->user_type == 0) {
-
-                $balance = Deposits::where('user_id',auth()->user()->id)->sum('balance');
-               // dd($balance);
                   //Handling Login Bonuses
                     $current_date = date('Y-m-d');
                     $dataexist = LoginCounts::whereDate('created_at', $current_date)
@@ -71,7 +70,7 @@ class LoginController extends Controller
 
                          Deposits::create([
                             'user_id' => auth()->user()->id,
-                            'balance' => 300, 
+                            'balance' => 300,
                             'description' => 'Login Bonus For '.auth()->user()->name,
                             ]);
                             $deposit = Deposits::where('user_id',auth()->user()->id)->sum('balance');
@@ -88,8 +87,7 @@ class LoginController extends Controller
                 return redirect()->route('home');
             }
         } else {
-            return redirect()->route('login')
-                ->with('message', 'Email And Password Do not Match.');
+            return redirect()->route('login')->with('error', 'Email And Password Do not Match.');
         }
     }
 }

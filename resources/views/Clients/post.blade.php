@@ -52,12 +52,9 @@
                 </section>
                 <!-- /.content -->
             </div>
-        </div>
-
-
-      
+        </div>     
 
         @include('layouts.Partials.bottombar')
 
     </div>
-@endsection 
+@endsection

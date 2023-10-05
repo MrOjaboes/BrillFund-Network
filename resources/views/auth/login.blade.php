@@ -85,6 +85,7 @@
 <div class="row mt-5 align-items-center justify-content-md-center" style="padding-top: 5%">
     <div class="col-5">
         <img src="/FrontEnd/rockie/images/logo.svg" width="200" alt="">
+
     </div>
 </div>
 <div class="container h-p100">
@@ -92,9 +93,17 @@
         <div class="col-12">
             <div class="row justify-content-center g-0">
                 <div class="col-lg-5 col-md-5 col-12">
-
-
+                    @if (session()->has('error'))
+                    <div class="col-md-6 mt-3 position-relative">
+                        <div style="background:#d21818;color:white;" class="alert">
+                            <a href="#" class="close text-white" data-dismiss="alert"
+                                aria-label="close">&times;</a>
+                            {{ session('error') }}
+                        </div>
+                    </div>
+                @endif
                     <div class="edit-form">
+
                         <form class="form-horizontal form-element col-12" action="{{ route('login') }}" method="post">
                            @csrf
                                <div class="form-group row">

@@ -23,6 +23,7 @@ class FreelancingController extends Controller
             "facebook" => $request->facebook,
             "twitter" => $request->twitter,
             "whatsapp" => $request->whatsapp,
+            "note" => $request->note,
         ]);
         return redirect()->back()->with('message', 'Details Updated Successfully!');
     }

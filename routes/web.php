@@ -72,6 +72,7 @@ Route::group(['middleware' => 'isAdmin', 'prefix' => 'admin'], function () {
     Route::get('/dailypost', [App\Http\Controllers\HomeController::class, 'dailypost'])->name('home.dailypost');
     Route::get('/vtu', [App\Http\Controllers\HomeController::class, 'vtu'])->name('home.vtu');
     Route::get('/all-codes', [App\Http\Controllers\HomeController::class, 'all_codes'])->name('home.codes');
+    Route::get('/refferals', [App\Http\Controllers\HomeController::class, 'refferals'])->name('home.refferals');
     Route::get('/earning-history', [App\Http\Controllers\HomeController::class, 'earning_history'])->name('home.earning');
     Route::post('/dailypost/{post}/claim', [App\Http\Controllers\HomeController::class, 'claimDailypost'])->name('home.dailypost.claim');
     //P2P Registeration

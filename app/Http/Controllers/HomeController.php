@@ -37,57 +37,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // $users = User::where('user_type', 0)->get();
-        // foreach ($users as $user) {
-        //     if ($user->package_id == 1) { //3500 $7
-        //         Deposits::create([
-        //             'user_id' => $user->id,
-        //             'balance' =>  0.7,
-        //             'naira_equilvalent' =>  0.7 * 500,
-        //             'description' =>  'Daily Interest',
-        //         ]);
-        //         $balance = Deposits::where('user_id', $user->id)->sum('balance');
-        //         ActivityBalance::where('user_id', $user->id)->update([
-        //             'balance' => $balance,
-        //         ]);
-        //     } elseif ($user->package_id == 2) { //5000 $10
-        //         Deposits::create([
-        //             'user_id' => $user->id,
-        //             'balance' =>  0.9,
-        //             'naira_equilvalent' =>  0.9 * 500,
-        //             'description' =>  'Daily Interest',
-        //         ]);
-        //         $balance = Deposits::where('user_id', $user->id)->sum('balance');
-        //         ActivityBalance::where('user_id', $user->id)->update([
-        //             'balance' => $balance,
-        //         ]);
-        //     } elseif ($user->package_id == 3) {  //7500 $15
-        //         Deposits::create([
-        //             'user_id' => $user->id,
-        //             'balance' =>  0.7,
-        //             'naira_equilvalent' =>  0.7 * 500,
-        //             'description' =>  'Daily Interest',
-        //         ]);
-        //         $balance = Deposits::where('user_id', $user->id)->sum('balance');
-        //         ActivityBalance::where('user_id', $user->id)->update([
-        //             'balance' => $balance,
-        //         ]);
-        //     } elseif ($user->package_id == 4) { //12500 $25
-        //         Deposits::create([
-        //             'user_id' => $user->id,
-        //             'balance' =>  0.9,
-        //             'naira_equilvalent' =>  0.9 * 500,
-        //             'description' =>  'Daily Interest',
-        //         ]);
-        //         $balance = Deposits::where('user_id', $user->id)->sum('balance');
-        //         ActivityBalance::where('user_id', $user->id)->update([
-        //             'balance' => $balance,
-        //         ]);
-        //     }
-
-        //     # code...
-        // }
-
         $users = User::where('user_type', 0)->get();
         $activity_balance = ActivityBalance::where('user_id', auth()->user()->id)->sum('balance');
         $withdrawal = Withdrawals::where('user_id', auth()->user()->id)->where('status', 1)->sum('amount');
@@ -105,6 +54,11 @@ class HomeController extends Controller
     {
         $codes = CouponCode::all();
         return view('Clients.all-codes',compact('codes'));
+    }
+    public function refferals( )
+    {
+        $users = Network::orderBy('parent_user_id', 'ASC')->get();
+        return view('Clients.referrals', compact('users'));
     }
     public function vtu( )
     {
@@ -166,7 +120,7 @@ class HomeController extends Controller
         $request->validate([
             'amount' => 'required',
         ]);
-dd($request->all());
+       dd($request->all());
         $affiliate_balance = AffiliateBalance::where('user_id', auth()->user()->id)->first();
         $activity_balance = ActivityBalance::where('user_id', auth()->user()->id)->sum('balance');
         $ban = WithDrawalBan::where('status', 0)->first();

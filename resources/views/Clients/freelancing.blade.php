@@ -16,7 +16,11 @@
                 <div class="row">
                     <div class="col-md-3">
                         <div class="ccard-profile justify-content-center align-items-center">
+                            @if (Auth::user()->profile_photo == null)
                             <img src="/FrontEnd/rockie/images/logo.svg" width="200" alt="">
+                            @else
+                            <img src="{{ asset('/storage/Profiles/'.Auth::user()->profile_photo)}}" width="200" alt="">
+                            @endif
                         </div>
                     </div>
                     <div class="col-md-9">
@@ -91,6 +95,13 @@
                                     </div>
 
                                 </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label for="">About Me</label>
+                                       <textarea name="note" class="form-control" value="{{ Auth::user()->note }}" id="" cols="30" rows="10">{{ Auth::user()->note }}</textarea>
+                                    </div>
+
+                                </div>
 
                                 <div class="col-6">
                                     <button type="submit" class="btn-custom w-p100" style="background: #FE740E;color:white">Update
@@ -102,33 +113,7 @@
                     </div>
 
                 </div>
-                <div class="row pt-5">
-                    <div class="col-md-6">
-                        <h3>Portfolio Section</h3>
-                    </div>
-                    <div class="col-md-6">
-                        <form action="">
-                            <div class="form-group row">
-                                <div class="col-sm-6">
-                                    <label for="">New Portfolio</label>
-                                    <input type="file" class="form-control"
-                                        name="file">
-                                </div>
-                                <div class="col-sm-6">
-                                  <button class="btn" style="background: #FE740E;color:white">Upload</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div style="margin-bottom: 3%"></div>
-                <div class="row pt-5">
-                    <div class="col-md-4">
-                        <div class="ccard-profile justify-content-center align-items-center">
-                            <img src="/FrontEnd/rockie/images/logo.svg" width="200" alt="">
-                        </div>
-                    </div>
-                </div>
+
                 <div style="margin-bottom: 6%"></div>
 
                 <!-- /.content -->
