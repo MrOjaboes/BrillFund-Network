@@ -35,7 +35,7 @@
                     </div>
                     <div class="form-group">
                           <label for=" "> New Caption</label>
-                        <input type="file" class="form-control" wire:model="photo" id=" " >
+                        <input type="file" class="form-control" accept="image/*" wire:model="photo" id=" " >
                         @error('photo') <span class="text-danger">{{ $message }}</span>@enderror
                     </div>
 

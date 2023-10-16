@@ -50,7 +50,6 @@
                             <th>Name</th>
                             <th>Amount</th>
                             <th>Status</th>
-                            <th>Remark(s)</th>
                             <th>Date</th>
                             {{-- <th></th> --}}
                         </tr>
@@ -72,7 +71,6 @@
                                     <button class="btn btn-success text-white">Approved</button>
                                     @endif
                                 </td>
-                                <td>{{ $data->note }}</td>
                                 <td>  {{ \Carbon\Carbon::parse($data->created_at)->format('d D, M Y') }} </td>
                                 <td><a href="{{ route('admin.withdrawalDetails',$data->id) }}" class="btn btn-outline-secondary">Details</a></td>
 

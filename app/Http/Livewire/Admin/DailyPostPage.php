@@ -26,7 +26,7 @@ class DailyPostPage extends Component
             'title' => 'required',
             'content' => 'required',
             'link' => 'required|url',
-            'photo' => 'required|mimes:png,jpg,jpeg|max:2048',
+            'photo' => 'required|mimes:png,jpg,jpeg|max:1024',
         ]);
    // Original File name
    $original_filename = $this->photo->getClientOriginalName();

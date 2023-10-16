@@ -72,7 +72,7 @@
                     <div class="col-md-9">
                         <div class="card">
                             <div class="card-header p-2">
-                               Profile
+                               Payout Info
                             </div><!-- /.card-header -->
                             <div class="card-body">
                                 <div class="tab-content">

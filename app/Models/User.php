@@ -26,6 +26,8 @@ class User extends Authenticatable
         'facebook',
         'twitter',
         'profile_photo',
+        'dp',
+        'secret_password',
         'whatsapp',
          'email',
          'user_type',
@@ -55,6 +57,14 @@ class User extends Authenticatable
     public function profile()
     {
        return $this->hasOne(Profile::class,'user_id');
+    }
+    public function affiliateBalance()
+    {
+       return $this->hasOne(AffiliateBalance::class,'user_id');
+    }
+    public function withdrawal()
+    {
+       return $this->hasOne(Withdrawals::class,'user_id');
     }
     public function network()
     {

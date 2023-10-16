@@ -27,16 +27,24 @@
                     <div class="col-md-12">
                         <div class="box">
                             <div class="box-body">
-                                <table>
+                                <table class="table">
                                     <thead>
                                         <tr>
-                                            <th></th>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Total Earnings</th>
+                                            <th>Cashout(s)</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach ($refferals as $data)
                                         <tr>
-                                            <td></td>
+                                            <td>{{ $data->user->name }}</td>
+                                            <td>{{ $data->user->email }}</td>
+                                            <td>{{ $data->user->affiliateBalance->total }}</td>
+                                            <td>{{ $data->user->withdrawal()->where('status',1)->sum('amount') }}</td>
                                         </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

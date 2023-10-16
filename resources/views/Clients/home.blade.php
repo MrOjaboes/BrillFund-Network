@@ -120,7 +120,7 @@
                     </div>
                     <div class="col-md-3"> </div>
                 </div>
-                <div style="margin-bottom: 10%"></div>
+                <div style="margin-bottom: 5%"></div>
                 <div class="row">
                     <div class="col-md-12 position-relative">
                         <div class="box pt-3">
@@ -154,7 +154,7 @@
 
                     </div>
                 </div>
-
+                <div style="margin-bottom: 5%"></div>
             </div>
         </div>
         @else

@@ -14,7 +14,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('home') }}">
+                        <a href="{{ route('home.generate-code') }}">
                             <i data-feather="monitor"></i>
                             <span>Generate Code</span>
                         </a>

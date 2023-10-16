@@ -52,6 +52,9 @@ Route::group(['middleware' => 'isAdmin', 'prefix' => 'admin'], function () {
     Route::post('/quiz/{quiz}/details', [App\Http\Controllers\Admin\QuizController::class, 'updateQuiz'])->name('admin.quiz.update');
 
 
+    //Payment Update
+    Route::post('/profile/payment', [App\Http\Controllers\Admin\ProfileController::class, 'updateTransferDetails'])->name('admin.payment');
+
     //Profile Update
     Route::get('/profile', [App\Http\Controllers\Admin\ProfileController::class, 'profile'])->name('admin.profile');
     Route::post('/profile/login', [App\Http\Controllers\Admin\ProfileController::class, 'updateDetails'])->name('admin.login.update');
@@ -62,38 +65,45 @@ Route::group(['middleware' => 'isAdmin', 'prefix' => 'admin'], function () {
 //Affiliate Section
 
 //Route::group(['middleware' => 'isAffiliate', 'prefix' => 'home'], function () {
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-    Route::get('/request/payout', [App\Http\Controllers\HomeController::class, 'payout'])->name('home.payout');
-    Route::post('/payout', [App\Http\Controllers\HomeController::class, 'payoutProcess'])->name('home.payout.request');
-    Route::get('/plan-upgrade', [App\Http\Controllers\PlanController::class, 'index'])->name('home.plans');
-    Route::post('/plan-upgrade', [App\Http\Controllers\PlanController::class, 'planUpgrade'])->name('home.plan.upgrade');
-    Route::get('/quiz-predict', [App\Http\Controllers\QuizController::class, 'index'])->name('home.quiz');
-    Route::post('/quiz-predict-post', [App\Http\Controllers\QuizController::class, 'store'])->name('home.quiz.post');
-    Route::get('/dailypost', [App\Http\Controllers\HomeController::class, 'dailypost'])->name('home.dailypost');
-    Route::get('/vtu', [App\Http\Controllers\HomeController::class, 'vtu'])->name('home.vtu');
-    Route::get('/all-codes', [App\Http\Controllers\HomeController::class, 'all_codes'])->name('home.codes');
-    Route::get('/refferals', [App\Http\Controllers\HomeController::class, 'refferals'])->name('home.refferals');
-    Route::get('/earning-history', [App\Http\Controllers\HomeController::class, 'earning_history'])->name('home.earning');
-    Route::post('/dailypost/{post}/claim', [App\Http\Controllers\HomeController::class, 'claimDailypost'])->name('home.dailypost.claim');
-    //P2P Registeration
-    Route::get('/p2p-registeration', [App\Http\Controllers\P2PController::class, 'index'])->name('home.p2p');
-    Route::post('/p2p-registeration', [App\Http\Controllers\P2PController::class, 'store'])->name('p2p.store');
-    //Token Section
-    Route::get('/token-inquiry', [App\Http\Controllers\TokenController::class, 'index'])->name('home.token');
-    Route::post('/token-inquiry', [App\Http\Controllers\TokenController::class, 'store'])->name('token.store');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/request/payout', [App\Http\Controllers\HomeController::class, 'payout'])->name('home.payout');
+Route::post('/payout', [App\Http\Controllers\HomeController::class, 'payoutProcess'])->name('home.payout.request');
+Route::get('/plan-upgrade', [App\Http\Controllers\PlanController::class, 'index'])->name('home.plans');
+Route::post('/plan-upgrade', [App\Http\Controllers\PlanController::class, 'planUpgrade'])->name('home.plan.upgrade');
+Route::get('/quiz-predict', [App\Http\Controllers\QuizController::class, 'index'])->name('home.quiz');
+Route::post('/quiz-predict-post', [App\Http\Controllers\QuizController::class, 'store'])->name('home.quiz.post');
+Route::get('/dailypost', [App\Http\Controllers\HomeController::class, 'dailypost'])->name('home.dailypost');
+Route::get('/vtu', [App\Http\Controllers\HomeController::class, 'vtu'])->name('home.vtu');
+//Coupon Code Section
+Route::get('/all-codes', [App\Http\Controllers\CouponCodeController::class, 'all_codes'])->name('home.codes');
+Route::get('/generate-code', [App\Http\Controllers\CouponCodeController::class, 'generate_code'])->name('home.generate-code');
+Route::post('/generate-code', [App\Http\Controllers\CouponCodeController::class, 'send_code'])->name('home.generate-code.send');
 
-    //Freelancing Section
-    Route::get('/freelancing', [App\Http\Controllers\FreelancingController::class, 'index'])->name('home.freelancing');
-    Route::post('/freelancing', [App\Http\Controllers\FreelancingController::class, 'store'])->name('freelancing.store');
-    //Profile Mgt
+Route::get('/refferals', [App\Http\Controllers\HomeController::class, 'refferals'])->name('home.refferals');
+Route::get('/earning-history', [App\Http\Controllers\HomeController::class, 'earning_history'])->name('home.earning');
+Route::post('/dailypost/{post}/claim', [App\Http\Controllers\HomeController::class, 'claimDailypost'])->name('home.dailypost.claim');
+//P2P Registeration
+Route::get('/p2p-registeration', [App\Http\Controllers\P2PController::class, 'index'])->name('home.p2p');
+Route::post('/p2p-registeration', [App\Http\Controllers\P2PController::class, 'store'])->name('p2p.store');
+//Token Section
+Route::get('/token-inquiry', [App\Http\Controllers\TokenController::class, 'index'])->name('home.token');
+Route::get('/token-details/{ticket}', [App\Http\Controllers\TokenController::class, 'details'])->name('ticket-details');
+Route::post('/token-reply/{ticket}', [App\Http\Controllers\TokenController::class, 'reply'])->name('ticket-reply');
+Route::post('/token-inquiry', [App\Http\Controllers\TokenController::class, 'store'])->name('token.store');
 
-    Route::get('/payout-details', [App\Http\Controllers\PayoutController::class, 'index'])->name('payout-details');
-    Route::post('/payout-details', [App\Http\Controllers\PayoutController::class, 'update'])->name('payout.update');
+//Freelancing Section
+Route::get('/freelancing', [App\Http\Controllers\FreelancingController::class, 'index'])->name('home.freelancing');
+Route::post('/freelancing', [App\Http\Controllers\FreelancingController::class, 'store'])->name('freelancing.store');
+Route::post('/freelancing/dp', [App\Http\Controllers\FreelancingController::class, 'updateDp'])->name('freelancing.dp');
+//Profile Mgt
 
-    //Profile Mgt
-    Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'index'])->name('home.profile');
-    Route::post('/profile/photo', [App\Http\Controllers\ProfileController::class, 'updateProfilePhoto'])->name('home.profile.photo');
-    Route::post('/profile', [App\Http\Controllers\ProfileController::class, 'updateProfile'])->name('home.profile.update');
-    Route::post('/profile/password', [App\Http\Controllers\ProfileController::class, 'updatePassword'])->name('home.password.update');
-    Route::post('/profile/details', [App\Http\Controllers\ProfileController::class, 'updateDetails'])->name('home.details.update');
+Route::get('/payout-details', [App\Http\Controllers\PayoutController::class, 'index'])->name('payout-details');
+Route::post('/payout-details', [App\Http\Controllers\PayoutController::class, 'update'])->name('payout.update');
+
+//Profile Mgt
+Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'index'])->name('home.profile');
+Route::post('/profile/photo', [App\Http\Controllers\ProfileController::class, 'updateProfilePhoto'])->name('home.profile.photo');
+Route::post('/profile', [App\Http\Controllers\ProfileController::class, 'updateProfile'])->name('home.profile.update');
+Route::post('/profile/password', [App\Http\Controllers\ProfileController::class, 'updatePassword'])->name('home.password.update');
+Route::post('/profile/details', [App\Http\Controllers\ProfileController::class, 'updateDetails'])->name('home.details.update');
 //});

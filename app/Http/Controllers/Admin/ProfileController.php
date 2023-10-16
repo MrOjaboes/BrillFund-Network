@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\TransferInfo;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -16,8 +17,22 @@ class ProfileController extends Controller
     }
     public function profile(Request $request)
     {
-
-        return view('Admin.profile');
+$transfer_details = TransferInfo::where('user_id',auth()->user()->id)->first();
+        return view('Admin.profile',compact('transfer_details'));
+    }
+    public function updateTransferDetails(Request $request)
+    {
+        $request->validate([
+            'bank' => 'required',
+            'acct_number' => 'required',
+            'acct_name' => 'required',
+        ]);
+        TransferInfo::where('user_id',auth()->user()->id)->update([
+            'bank' => $request->bank,
+            'acct_number' => $request->acct_number,
+            'acct_name' => $request->acct_name,
+        ]);
+        return redirect()->back()->with('message', 'Details updated succesfully');
     }
     public function updateDetails(Request $request)
     {

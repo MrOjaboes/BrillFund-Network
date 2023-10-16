@@ -38,7 +38,7 @@
 
                                 </div>
                                 <div class="d-flex justify-content-between w-p100">
-                                    <h3 style="margin-top:-20px">00</h3>
+                                    <h3 style="margin-top:-20px">{{ '$'.$affiliate_balance->total }}</h3>
                                 </div>
 
                             </div>

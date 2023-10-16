@@ -3,15 +3,13 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
-<!-- Mirrored from www.learnify.ng/signin by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 19 Aug 2023 05:39:38 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+ <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
     <title>Brillfund Network</title>
     <meta name="keywords" content="peer-to-peer, make money online, money, online website, make money online website, marketting, affiliate marketting" />
-    <meta name="description" content="Learnify">
+    <meta name="description" content="BrillFund Network">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <link rel="shortcut icon" href="FrontEnd/rockie/images/general/e6c7bd70c31050b5fa0ca03ee160388bf0de2427-7iuBe.png">
+    <link rel="shortcut icon" href="/FrontEnd/rockie/images/logo.svg">
 
     <!-- Vendors Style-->
     <link rel="stylesheet" href="/FrontEnd/AuthUi/css/vendors_css.css">

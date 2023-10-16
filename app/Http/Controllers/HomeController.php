@@ -50,20 +50,16 @@ class HomeController extends Controller
     }
 
 
-    public function all_codes()
+
+    public function refferals()
     {
-        $codes = CouponCode::all();
-        return view('Clients.all-codes',compact('codes'));
-    }
-    public function refferals( )
-    {
-        $users = Network::orderBy('parent_user_id', 'ASC')->get();
-        return view('Clients.referrals', compact('users'));
+        $refferals = Network::with('user')->where('parent_user_id',auth()->user()->id)->get();
+        return view('Clients.referrals', compact('refferals'));
     }
     public function vtu( )
     {
-        $users = Network::orderBy('parent_user_id', 'ASC')->get();
-        return view('Clients.contest', compact('users'));
+        $affiliate_balance = AffiliateBalance::where('user_id',auth()->user()->id)->first();
+        return view('Clients.vtu', compact('affiliate_balance'));
     }
     public function earning_history()
     {

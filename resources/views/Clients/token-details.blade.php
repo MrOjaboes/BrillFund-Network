@@ -41,57 +41,33 @@
                 {{-- First Section --}}
 
                 <div style="margin-bottom: 5%"></div>
-                <form class="form-horizontal form-element" action="{{ route('token.store') }}" method="post">
+                <form class="form-horizontal form-element" action="{{ route('ticket-reply',$ticket->id) }}" method="post">
                     @csrf
                     <div class="form-group row">
                         <div class="col-sm-6">
-                            <select class="form-control" name="reason" required id="">
-                                <option value="">--- Select Token ---</option>
-                                <option value="USDT">USDT</option>
-                                <option value="BTC">BTC</option>
-                            </select>
+                            <label for="">Token Type</label>
+                           <input type="text" class="form-control" readonly value="{{ $ticket->reason }}" id="">
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-sm-6">
-                            <textarea name="message" required class="form-control" placeholder="Message" id="" cols="30" rows="10"></textarea>
+                            <textarea name="message" readonly class="form-control" value="{{ $ticket->message }}">{{ $ticket->message }}</textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+                            <textarea name="message2" class="form-control" placeholder="Reply Message" cols="30" rows="10"></textarea>
                         </div>
                     </div>
 
 
                     <div class="col-6">
-                        <button type="submit" class="btn-custom w-p100" style="background: #FE740E;color:white">Send
-                            Message
+                        <button type="submit" class="btn-custom w-p100" style="background: #FE740E;color:white">Reply Message
                         </button>
                     </div>
                 </form>
-                <div style="margin-bottom: 3%"></div>
-               <div class="row">
-                <div class="col-md-12">
-                    <div class="box">
-                        <div class="box-body">
-                            <table class="table table-hovered">
-                                <thead>
-                                    <tr>
-                                        <th>Email</th>
-                                        <th>Reason</th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($tickets as $item)
-                                    <tr>
-                                        <td>{{ $item->email }}</td>
-                                        <td>{{ $item->reason }}</td>
-                                        <td><a href="{{ route('ticket-details',$item->id) }}" class="btn btn-outline-secondary">Details</a></td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-               </div>
+                <div style="margin-bottom: 8%"></div>
+
             </div>
 
         </div>

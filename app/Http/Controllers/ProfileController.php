@@ -38,6 +38,7 @@ class ProfileController extends Controller
         ]);
         return redirect()->back()->with('message','Profile Photo Updated Successfully!');
     }
+
     public function updateProfile(Request $request)
     {
         User::where('id',auth()->user()->id)->update([

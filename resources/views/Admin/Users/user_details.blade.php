@@ -51,21 +51,48 @@
 
                             <div class="card-body box-profile">
                                 <div class="text-center">
-                                    @if ($user->profile->photo == null)
+                                    @if ($user->profile_photo == null)
 
                                         <img class="profile-user-img img-fluid img-thumbnail"
-                                            src="/FrontEnd/Affiliate/images/no-avatar.png" alt="member photo" />
+                                            src="/FrontEnd/Affiliate/images/no-avatar.png" alt="User photo" />
                                     @else
                                         <img class="profile-user-img img-fluid img-thumbnail"
-                                            src="{{ asset('/Photos/' . $user->profile->photo) }}" alt="member Passport" />
+                                            src="{{ asset('/storage/Profiles/'.$user->profile_photo)}}" alt="User Passport" />
                                     @endif
                                 </div>
 
-                                <p class="profile-username text-center">{{ $user->profile->name }} </p>
+                                <p class="profile-username text-center">
+                                       @if ($user->status == 0)
+                                    <button class="btn btn-success">Active</button>
+                                    @else
+                                    <button class="btn btn-danger">Banned</button>
+                                    @endif
+                                     </p>
+                                <p class="profile-username text-center">{{ $user->name }} </p>
 
                             </div>
                         </div>
+
+                        {{-- dp --}}
+                        <div class="card card-primary card-outline">
+                            <div class="card-body box-profile">
+                                <div class="text-center">
+                                    @if ($user->dp == null)
+
+                                        <img class="img-fluid img-thumbnail"
+                                            src="/FrontEnd/Affiliate/images/no-avatar.png" alt="User photo" />
+                                    @else
+                                        <img class="img-fluid img-thumbnail"
+                                            src="{{ asset('/storage/Profiles/DP/'.$user->dp)}}" alt="User Passport" />
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+                        @if ($user->user_type == 0)
                         <a class="btn btn-danger" href="{{ route('admin.users') }}">Back</a>
+                        @else
+                        <a class="btn btn-danger" href="{{ route('admin.vendors') }}">Back</a>
+                        @endif
                         <!-- /.card -->
 
 
@@ -105,6 +132,13 @@
                                                         placeholder="Email">
                                                 </div>
                                             </div>
+                                            <div class="form-group row">
+                                                <label for="inputEmail" class="col-sm-2 col-form-label">Password</label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" readonly value="{{ $user->secret_password }}" name="email" class="form-control" id="inputEmail"
+                                                        placeholder="">
+                                                </div>
+                                            </div>
                                         </form>
                                     </div>
                                     <div class="tab-pane" id="password">
@@ -113,34 +147,65 @@
                                             <div class="form-group row">
                                                 <label for=" " class="col-sm-2 col-form-label">Full Name</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" class="form-control" value="{{ $user->profile->name }}"
+                                                    <input type="text" class="form-control" value="{{ $user->fname }} {{ $user->lname }}"
                                                         readonly>
                                                 </div>
                                             </div>
-                                            <div class="form-group row">
-                                                <label for=" " class="col-sm-2 col-form-label">Email</label>
-                                                <div class="col-sm-10">
-                                                    <input type="text" class="form-control" value="{{ $user->profile->email }}"
-                                                        readonly>
-                                                </div>
-                                            </div>
-
                                             <div class="form-group row">
                                                 <label for=" " class="col-sm-2 col-form-label">Contact</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" class="form-control" value="{{ $user->profile->phone }}"
+                                                    <input type="text" class="form-control" value="{{ $user->contact }}"
+                                                        readonly>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label for=" " class="col-sm-2 col-form-label">Facebook</label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" class="form-control" value="{{ $user->facebook }}"
                                                         readonly>
 
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for=" " class="col-sm-2 col-form-label">Country</label>
+                                                <label for=" " class="col-sm-2 col-form-label">Whatsapp</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" class="form-control" value="{{ $user->profile->country }}"
+                                                    <input type="text" class="form-control" value="{{ $user->whatsapp }}"
                                                         readonly>
-                                                </div>
 
+                                                </div>
                                             </div>
+                                            <div class="form-group row">
+                                                <label for=" " class="col-sm-2 col-form-label">Twitter</label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" class="form-control" value="{{ $user->twitter }}"
+                                                        readonly>
+
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for=" " class="col-sm-2 col-form-label">LinkedIn</label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" class="form-control" value="{{ $user->linkedin }}"
+                                                        readonly>
+
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for=" " class="col-sm-2 col-form-label">Referal Link</label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" class="form-control" value="{{ $user->referral_code }}"
+                                                        readonly>
+
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for=" " class="col-sm-2 col-form-label">About Me</label>
+                                                <div class="col-sm-10">
+                                                   <textarea name="" readonly class="form-control">{{ $user->note }}</textarea>
+                                                </div>
+                                            </div>
+
 
                                         </form>
                                     </div>

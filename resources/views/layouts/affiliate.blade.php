@@ -6,10 +6,10 @@
 <head>
     <title>Brillfund Network</title>
     <meta name="csrf-token" content="OgJXQEDkFIkXIEMj6YpE1gwrTP9VKEmEfgjxbSuo">
-    <meta name="keywords" content="peer-to-peer, make money online, money, online website, make money online website, marketting, FrontEnd/affiliate marketting" />
-    <meta name="description" content="Learnify">
+    <meta name="keywords" content="peer-to-peer, make money online, money, online website, make money online website, marketting,affiliate marketting" />
+    <meta name="description" content="Brillfund">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <link rel="shortcut icon" href="https://www.learnify.ng/images/general/e6c7bd70c31050b5fa0ca03ee160388bf0de2427-7iuBe.png">
+    <link rel="shortcut icon" href="/FrontEnd/rockie/images/logo.svg">
     <!-- Vendors Style-->
     <link rel="stylesheet" href="/FrontEnd/Affiliate/css/vendors_css.css">
     <!-- Style-->

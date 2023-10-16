@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Mirrored from www.learnify.ng/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 19 Aug 2023 05:45:20 GMT -->
-<!-- Added by HTTrack -->
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 
 <head>
     <!-- meta tag -->
     <meta charset="utf-8">
     <title>Brillfund Network</title>
-    <meta name="description" content="Dexearn">
+    <meta name="description" content="BrillFund Network">
     <!-- responsive tag -->
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,10 +17,8 @@
     <link rel="stylesheet" href="../unpkg.com/swiper%4010.2.0/swiper-bundle.min.css" />
     <!-- End Style CSS -->
 
-    <link rel="shortcut icon"
-        href="/FrontEnd/rockie/images/general/e6c7bd70c31050b5fa0ca03ee160388bf0de2427-7iuBe.png" />
-    <link rel="apple-touch-icon-precomposed"
-        href="/FrontEnd/rockie/images/general/e6c7bd70c31050b5fa0ca03ee160388bf0de2427-7iuBe.png" />
+    <link rel="shortcut icon" href="/FrontEnd/rockie/images/logo.svg" />
+    <link rel="apple-touch-icon-precomposed" href="/FrontEnd/rockie/images/logo.svg" />
     <script type='text/javascript' src='../pl18200534.highrevenuegate.com/4f/07/82/4f07828118d9983f02124708f3c89d02.js'>
     </script>
 
@@ -51,7 +47,7 @@
                             <div class="left__main">
                                 <nav id="main-nav" class="main-nav">
                                     <ul id="menu-primary-menu" class="menu">
-                                        <li class="menu-item current-menu-item">
+                                        <li class="menu-item">
                                             <a href="{{ url('/') }}">Home</a>
                                         </li>
 
@@ -65,17 +61,15 @@
                                                 <li class="menu-item">
                                                     <a href="{{ route('coupon.verify') }}">Verify Coupon Code</a>
                                                 </li>
-                                                <li class="menu-item">
+                                                {{-- <li class="menu-item">
                                                     <a href="{{ route('howitworks') }}">How it Works</a>
-                                                </li>
+                                                </li> --}}
                                                 <li class="menu-item">
                                                     <a href="{{ route('topEarners') }}">Top Earners</a>
                                                 </li>
                                             </ul>
                                         </li>
-                                        <li class="menu-item">
-                                            <a href="{{ route('adverts') }}">DEX posts</a>
-                                        </li>
+
                                         <li class="menu-item">
                                             <a href="{{ route('adverts') }}">Advert</a>
                                         </li>
@@ -102,6 +96,10 @@
                         </div>
 
                         <div class="header__right">
+                            <div class="menu-item">
+                                <a href="{{ route('login') }}" class="btn" style="border:none;width:100px;background:#FE740E;color:white"> Login </a> /
+                                <a href="{{ route('register') }}" class="btn" style="border:none;width:100px;background:#FE740E;color:white"> Sign up </a>
+                            </div>
                             <div class="mode-switcher">
                                 <a class="sun" href="#" onclick="switchTheme()">
                                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
@@ -138,9 +136,9 @@
                                     </svg>
                                 </a>
                             </div>
-                            <div class="wallet">
+                            {{-- <div class="wallet">
                                 <a href="{{ route('login') }}" class="btn" style="border:none;width:100px;background:#FE740E;color:white"> Login </a>
-                            </div>
+                            </div> --}}
                             <div class="mobile-button"><span></span></div>
                         </div>
                     </div>

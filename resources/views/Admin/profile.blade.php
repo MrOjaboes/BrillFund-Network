@@ -74,6 +74,8 @@
                                             data-toggle="tab">Login Details</a></li>
                                     <li class="nav-item"><a class="nav-link" href="#password"
                                             data-toggle="tab">Password</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#payment"
+                                            data-toggle="tab">Payment Details</a></li>
                                 </ul>
                             </div><!-- /.card-header -->
                             <div class="card-body">
@@ -144,6 +146,57 @@
                                             <div class="form-group row">
                                                 <div class="offset-sm-2 col-sm-10">
                                                     <button type="submit" class="btn btn-danger">Update Password</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="tab-pane" id="payment">
+                                        <form class="form-horizontal" action="{{ route('admin.payment') }}" method="POST">
+                                            @csrf
+                                            <div class="form-group row">
+                                                <label for=" " class="col-sm-2 col-form-label">Bank Name</label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" value="{{ $transfer_details->bank }}" class="form-control" name="bank"
+                                                        placeholder="Bank">
+                                                        @error('bank')
+                                                        <span style="color: red">
+                                                            <strong style="color: red">{{ $message }}</strong>
+                                                        </span>
+                                                              @enderror
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label for=" " class="col-sm-2 col-form-label">Account Name</label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" value="{{ $transfer_details->acct_name }}" class="form-control" name="acct_name"
+                                                        placeholder="Account Name">
+                                                        @error('acct_name')
+                                                <span style="color: red">
+                                                    <strong style="color: red">{{ $message }}</strong>
+                                                </span>
+                                                      @enderror
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for=" " class="col-sm-2 col-form-label">Account Number</label>
+                                                <div class="col-sm-10">
+                                                    <input type="number" value="{{ $transfer_details->acct_number }}" name="acct_number" class="form-control" id=" "
+                                                        placeholder=" Account Number">
+                                                        @error('acct_number')
+                                                        <span style="color: red">
+                                                            <strong style="color: red">{{ $message }}</strong>
+                                                        </span>
+                                                              @enderror
+                                                </div>
+
+                                            </div>
+
+
+
+                                            <div class="form-group row">
+                                                <div class="offset-sm-2 col-sm-10">
+                                                    <button type="submit" class="btn btn-danger">Update Details</button>
                                                 </div>
                                             </div>
                                         </form>

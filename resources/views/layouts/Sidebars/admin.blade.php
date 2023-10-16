@@ -51,12 +51,12 @@
                 <p>Dailypost</p>
               </a>
             </li>
-            <li class="nav-item">
+            {{-- <li class="nav-item">
               <a href="{{ route('admin.quiz') }}" class="nav-link {{ request()->is('admin/quiz') ? 'active' : '' || request()->is('admin/quiz/new')}}">
                 <i class="fas fa-book nav-icon"></i>
                 <p>Quiz</p>
               </a>
-            </li>
+            </li> --}}
             <li class="nav-item">
               <a href="{{ route('admin.deposits') }}" class="nav-link {{ request()->is('admin/deposits') ? 'active' : '' }}">
                 <i class="fa fa-dollar-sign nav-icon"></i>
@@ -69,12 +69,12 @@
                 <p>Withdrawals</p>
               </a>
             </li>
-            <li class="nav-item">
+            {{-- <li class="nav-item">
               <a href="{{ route('admin.packages') }}" class="nav-link {{ request()->is('admin/packages') ? 'active' : '' }}">
                 <i class="fas fa-users nav-icon"></i>
                 <p>Packages</p>
               </a>
-            </li>
+            </li> --}}
             <li class="nav-item">
               <a href="{{ route('admin.users') }}" class="nav-link {{ request()->is('admin/users') ? 'active' : '' }}">
                 <i class="fas fa-users nav-icon"></i>

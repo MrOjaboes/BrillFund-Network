@@ -31,7 +31,7 @@
 
                     <div class="form-group">
                           <label for=" "> Caption</label>
-                        <input type="file" placeholder="Link or URL" class="form-control" wire:model="photo" id=" " >
+                        <input type="file" placeholder="Link or URL" accept="image/*" class="form-control" wire:model="photo" id=" " >
                         @error('photo') <span class="text-danger">{{ $message }}</span>@enderror
                     </div>
                     <div class="form-group">

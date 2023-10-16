@@ -16,9 +16,9 @@
             <div class="col-md-10">
                 <div class="row">
                     <div class="col-md-6">
-                        <form action="">
+                        <form wire:submit.prevent="searchUser">
                             <div class="form-group">
-                                <input type="text" placeholder="Search User by username...." class="form-control" name="" id="">
+                                <input type="text" placeholder="Search User by username...." class="form-control" wire:model="searchTerm" id="">
                             </div>
                         </form>
                     </div>
@@ -38,35 +38,45 @@
                 <table class="table m-0">
                     <thead>
                         <tr>
-
-                            <th>S/N</th>
                             <th>Name</th>
                             <th>Email</th>
                             <th>Contact</th>
-                            <th>Plan</th>
+                            <th>Status</th>
                             <th>Date</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                       @php
-                       $i = 1;
-                   @endphp
+
                         @foreach ($users as $data)
                             <tr>
-
-                                <td>{{ $i }}</td>
                                 <td>{{ $data->name }}</td>
                                 <td>{{ $data->email }}</td>
-                                <td>{{ $data->email }}</td>
-                                <td>{{ $data->email }}</td>
+                                <td>{{ $data->contact }}</td>
+                                <td>
+                                    @if ($data->status == 0)
+                                    <button class="btn btn-success text-white">Active</button>
+                                   @else
+                                 <button class="btn btn-danger text-white">Banned</button>
+                                    @endif
+
+                                </td>
                                 <td>  {{ \Carbon\Carbon::parse($data->created_at)->format('d D, M Y') }} </td>
-                                <td><a href="{{ route('admin.usersDetails',$data->id) }}" class="btn btn-outline-secondary">Details</a></td>
+                                <td>
+                                   @if ($data->status == 0)
+                                   <button wire:click.prevent="banUser({{ $data->id }})" class="btn btn-danger text-white">Ban User</button>
+                                   @else
+                                    <button wire:click.prevent="activateUser({{ $data->id }})" class="btn btn-success text-white">Activate User</button>
+                                   @endif |
+                                    <a href="{{ route('admin.usersDetails',$data->id) }}" class="btn btn-outline-secondary">Details</a>
+@if ($data->user_type == 0 && $data->status == 0)
+|
+<button wire:click.prevent="makeVendor({{ $data->id }})" class="btn btn-outline-success">Mark as Vendor</button>
+@endif
+                                </td>
 
                             </tr>
-                            @php
-                            $i++;
-                        @endphp
+
                         @endforeach
 
                     </tbody>

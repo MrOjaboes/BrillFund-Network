@@ -14,7 +14,7 @@
             <div class="container">
                 <!-- Main content -->
                 <div class="row">
-                    <div class="col-md-3">
+                    <div class="col-md-5">
                         <div class="ccard-profile justify-content-center align-items-center">
                             @if (Auth::user()->profile_photo == null)
                             <img src="/FrontEnd/rockie/images/logo.svg" width="200" alt="">
@@ -22,8 +22,32 @@
                             <img src="{{ asset('/storage/Profiles/'.Auth::user()->profile_photo)}}" width="200" alt="">
                             @endif
                         </div>
+
+                        {{-- DP section --}}
+                        <div class="ccard-dp">
+                            @if (Auth::user()->dp == null)
+                            <img src="/FrontEnd/rockie/images/logo.svg" class="img-fluid img-thumbnail" width="500" alt="">
+                            @else
+                            <img src="{{ asset('/storage/Profiles/DP/'.Auth::user()->dp)}}" width="200" alt="">
+                            @endif
+                        </div>
+                        <form action="{{ route('freelancing.dp') }}" method="POST" enctype="multipart/form-data" style="margin-top: 3%">
+                            @csrf
+                            <div class="form-group row">
+                                <div class="col-sm-6">
+                                    <input type="file" accept="image/*" class="form-control" name="photo">
+                                    @error('photo')
+                                    <span style="color: #d21818">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                                <div class="col-sm-6">
+                                  <button class="btn" style="background:#FE740E;color:white">Upload</button>
+                                </div>
+                            </div>
+
+                        </form>
                     </div>
-                    <div class="col-md-9">
+                    <div class="col-md-7">
                        <div class="box">
                         <div class="box-body">
                             <div class="row">

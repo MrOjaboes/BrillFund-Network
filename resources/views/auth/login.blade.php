@@ -94,7 +94,7 @@
             <div class="row justify-content-center g-0">
                 <div class="col-lg-5 col-md-5 col-12">
                     @if (session()->has('error'))
-                    <div class="col-md-6 mt-3 position-relative">
+                    <div class="col-md-12 mt-3 position-relative">
                         <div style="background:#d21818;color:white;" class="alert">
                             <a href="#" class="close text-white" data-dismiss="alert"
                                 aria-label="close">&times;</a>

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCouponCodesTable extends Migration
+class CreateTicketMessagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateCouponCodesTable extends Migration
      */
     public function up()
     {
-        Schema::create('coupon_codes', function (Blueprint $table) {
+        Schema::create('ticket_messages', function (Blueprint $table) {
             $table->id();
-            $table->string('code');
-            $table->boolean('status')->default(0);
-            $table->boolean('used_status')->default(0);
-            $table->integer('user_id')->unsigned()->references('id')->on('users')->onDelete('CASCADE');
+            $table->text('message');
+            $table->integer('ticket_id')->unsigned()->references('id')->on('tickets')->onDelete('SET NULL');
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ class CreateCouponCodesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('coupon_codes');
+        Schema::dropIfExists('ticket_messages');
     }
 }

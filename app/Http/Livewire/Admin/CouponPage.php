@@ -45,8 +45,9 @@ class CouponPage extends Component
         CouponCode::create([
             'amount' => $validated['amount'],
             'naira_equilvalent' => $validated['amount'] * 820,
-            'code' => 'Admin/'.strtoupper(Str::random(5).$count), //substr(str_shuffle('123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, 10)
+            'code' => 'Admin_'.strtoupper(Str::random(10)), //substr(str_shuffle('123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, 10)
             'user_id' => auth()->user()->id,
+            'user_name' => auth()->user()->name,
         ]);
         $this->resetInputFields();
         return redirect()->back()->with('message','Code generated Successfully');

@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Hash;
 
 class P2PController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     //
     public function index()
     {
@@ -24,7 +28,7 @@ class P2PController extends Controller
     {
         $activity_balance = ActivityBalance::where('user_id', auth()->user()->id)->sum('balance');
         //dd($activity_balance);
-        if ($activity_balance < 10000) {
+        if ($activity_balance < 12000) {
             return redirect()->back()->with('error', 'Insufficient balnce to register User!');
         }
         $request->validate([
@@ -58,6 +62,7 @@ class P2PController extends Controller
         $user->contact = $request->contact;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
+        $user->secret_password = $request->password;
         $user->referal_code = $url . $request->username;
         $user->save();
         $token_amount = 10000;

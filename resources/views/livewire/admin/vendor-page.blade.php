@@ -2,7 +2,7 @@
 
     <div class="card">
         <div class="card-header border-transparent">
-               <div class="card-tools">
+            <div class="card-tools">
                 <button type="button" class="btn btn-tool" data-card-widget="collapse">
                     <i class="fas fa-minus"></i>
                 </button>
@@ -22,7 +22,7 @@
                 @endif
                 <div class="col-md-1"></div>
             </div>
-          </div>
+        </div>
         <!-- /.card-header -->
         <div class="card-body p-0">
             <div class="table-responsive">
@@ -30,32 +30,36 @@
                     <thead>
                         <tr>
                             <th>Name</th>
+                            <th>Email</th>
                             <th>Contact</th>
                             <th>Status</th>
-                            <th>Bank</th>
-                            <th>Date</th>
+
                         </tr>
                     </thead>
                     <tbody>
 
                         @foreach ($vendors as $data)
                             <tr>
-
-
                                 <td>{{ $data->name }}</td>
-                                <td>{{ $data->phone }}</td>
-                                <td class="">
+                                <td>{{ $data->email }}</td>
+                                <td>{{ $data->contact }}</td>
+                                <td>
                                     @if ($data->status == 0)
-                                    <button wire:click.prevent="changeStatus({{ $data->id }})" class="btn btn-success text-white">Approve</button>
+                                        <button class="btn btn-success text-white">Active</button>
                                     @else
-                                    <button wire:click.prevent="banVendor({{ $data->id }})" class="btn btn-warning text-white">Ban</button>
-
+                                        <button class="btn btn-danger text-white">Banned</button>
                                     @endif
-                                </td>
-                                <td>{{ $data->bank }}</td>
-                                  <td>  {{ \Carbon\Carbon::parse($data->created_at)->format('d D, M Y') }} </td>
-                            </tr>
 
+                                </td>
+                                <td>
+                                    {{ \Carbon\Carbon::parse($data->created_at)->format('d D, M Y') }}
+                                </td>
+                                <td>
+                                    <a href="{{ route('admin.usersDetails', $data->id) }}"
+                                        class="btn btn-outline-secondary">Details</a>
+
+                                </td>
+                            </tr>
                         @endforeach
 
                     </tbody>

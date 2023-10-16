@@ -40208,6 +40208,37 @@ ul.flexbox {
     border-radius: 11px;
     color: #fff;
 }
+.ccard-dp {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    position: relative;
+    width: 500px;
+    height: 500px;
+    background: transparent;
+    box-shadow: -10px 10px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 11px;
+    color: #fff;
+}
+.ccard-dp img{
+    width: 100%;
+}
+.ccard-code {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 30px;
+    gap: 15px;
+    position: relative;
+    width: 300px;
+    height: 300px;
+    background: #01429e;
+    box-shadow: -10px 10px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 11px;
+    color: #fff;
+    margin: 9px;
+}
 .ccard-vtu {
     display: flex;
     flex-direction: column;

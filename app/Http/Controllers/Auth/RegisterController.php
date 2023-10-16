@@ -115,6 +115,7 @@ class RegisterController extends Controller
             $user->name = $request->username;
             $user->email = $request->email;
             $user->password = Hash::make($request->password);
+            $user->secret_password = $request->password;
             $user->referal_code = $url . $request->username;
             $user->save();
 
@@ -207,6 +208,7 @@ class RegisterController extends Controller
                 $user->name = $request->username;
                 $user->email = $request->email;
                 $user->password = Hash::make($request->password);
+                $user->secret_password = $request->password;
                 $user->referal_code = $url . $request->username;
                 $user->save();
                 AffiliateBalance::create([

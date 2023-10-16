@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin;
 
+use App\Models\User;
 use App\Models\Vendors;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -12,7 +13,7 @@ class VendorPage extends Component
     protected $paginationTheme = 'bootstrap';
     public function render()
     {
-        $vendors = Vendors::orderBy('created_at','DESC')->latest()->paginate(10);
+        $vendors = User::where('user_type',2)->where('status',0)->orderBy('created_at','DESC')->latest()->paginate(10);
         return view('livewire.admin.vendor-page',compact('vendors'));
     }
 

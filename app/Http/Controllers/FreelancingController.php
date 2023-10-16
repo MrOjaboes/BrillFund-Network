@@ -7,9 +7,28 @@ use Illuminate\Http\Request;
 
 class FreelancingController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
         return view('Clients.freelancing');
+    }
+    public function updateDp(Request $request)
+    {
+       // dd('ok');
+        $request->validate([
+           'photo' => 'required|mimes:png,jpg,jpeg|max:2048',
+        ]);
+        if ($request->hasFile('photo')) {
+                 $fileName = $request->file('photo')->getClientOriginalName();
+                $request->file('photo')->storeAs('Profiles/DP', $fileName,'public');
+           }
+        User::where('id',auth()->user()->id)->update([
+            "dp" => $fileName,
+        ]);
+        return redirect()->back()->with('message','DP Updated Successfully!');
     }
     public function store(Request $request)
     {
