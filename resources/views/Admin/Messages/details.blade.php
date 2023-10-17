@@ -47,22 +47,23 @@
 
                     <!-- /.col -->
                     <div class="col-md-11">
-                        <form>
+                        <form action="{{ route('admin.message.reply',$ticket->id) }}" method="POST">
+                            @csrf
                         <div class="card">
                             <div class="card-body">
-                                <div class="tab-content">
-                                    <div class="tab-pane active" id="login">
-                                             <div class="form-group row">
-                                                   <div class="col-sm-12">
-                                                   <textarea name="question" readonly value="{{ $contact->content }}" class="form-control" id="" cols="30" rows="10">{{ $contact->content }}</textarea>
-                                                </div>
-                                            </div>
-
-
+                                <div class="form-group row">
+                                    <label for="inputName" class="col-sm-2 col-form-label">Token Type</label>
+                                    <div class="col-sm-10">
+                                         <input type="text" readonly class="form-control" value="{{ $ticket->reason }}">
                                     </div>
-
-                                    <!-- /.tab-pane -->
                                 </div>
+                                <div class="form-group row">
+                                    <label for="inputName" class="col-sm-2 col-form-label">From</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" readonly class="form-control" value="{{ $ticket->sender->name }}">
+                                    </div>
+                                </div>
+
                                 <!-- /.tab-content -->
                             </div><!-- /.card-body -->
                         </div>
@@ -71,34 +72,38 @@
                             <div class="card-body">
                                 <div class="tab-content">
                                     <div class="tab-pane active" id="login">
-                                             <div class="form-group row">
-                                                <label for="inputName" class="col-sm-2 col-form-label">Name</label>
-                                                <div class="col-sm-10">
-                                                    <input type="text" readonly name="option_1" class="form-control" id=""
-                                                        value="{{ $contact->name }}">
-                                                </div>
+                                        <div class="tab-content" style="overflow-y: scroll;overflow-x: hidden;height:300px">
+                                            <div class="tab-pane active" id="login">
+                                                     <div class="form-group row">
+                                                           <div class="col-sm-12">
+                                                           <textarea name="question" readonly value="{{ $ticket->message }}" class="form-control" id="" cols="30" rows="10">{{ $ticket->message }}</textarea>
+                                                        </div>
+                                                    </div>
+                                            </div>
+                                            @foreach ($responses as $item)
+                                            <div class="tab-pane active" id="login">
+                                                <div class="form-group row">
+                                                      <div class="col-sm-12">
+                                                      <textarea name="question" readonly value="{{ $item->message }}" class="form-control" id="" cols="30" rows="10">{{ $item->message }}</textarea>
+                                                   </div>
+                                               </div>
+                                           </div>
+                                            @endforeach
+
+                                            <!-- /.tab-pane -->
+                                        </div><br>
+                                            <div class="form-group row">
+                                                  <div class="col-sm-10">
+                                                      <textarea name="message2" placeholder="Reply to Message" class="form-control" cols="30" rows="10"></textarea>
+                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="inputName" class="col-sm-2 col-form-label">Email</label>
-                                                <div class="col-sm-10">
-                                                    <input type="text" readonly name="option_2" class="form-control" id=""
-                                                        value="{{ $contact->email }}">
-                                                </div>
+                                                  <div class="col-sm-6">
+                                                      <button type="submit" class="btn btn-outline-success">Reply Message</button>
+                                                 </div>
                                             </div>
-                                            <div class="form-group row">
-                                                <label for="inputName" class="col-sm-2 col-form-label">Contact</label>
-                                                <div class="col-sm-10">
-                                                    <input type="text" readonly name="option_3" class="form-control" id=""
-                                                        value="{{ $contact->phone }}">
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label for="inputName" class="col-sm-2 col-form-label">Subject</label>
-                                                <div class="col-sm-10">
-                                                    <input type="text" readonly name="option_3" class="form-control" id=""
-                                                        value="{{ $contact->subject }}">
-                                                </div>
-                                            </div>
+
+
 
                                     </div>
 
@@ -114,7 +119,7 @@
                     <div class="col-md-1"></div>
                     <!-- /.col -->
                 </div>
-                <a href="{{ route('admin.contact-us') }}" class="btn btn-danger">Back</a>
+                <a href="{{ route('admin.messages') }}" class="btn btn-danger">Back</a>
                 <!-- /.row -->
             </div><!-- /.container-fluid -->
         </section>

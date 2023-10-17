@@ -56,11 +56,7 @@ class HomeController extends Controller
         $refferals = Network::with('user')->where('parent_user_id',auth()->user()->id)->get();
         return view('Clients.referrals', compact('refferals'));
     }
-    public function vtu( )
-    {
-        $affiliate_balance = AffiliateBalance::where('user_id',auth()->user()->id)->first();
-        return view('Clients.vtu', compact('affiliate_balance'));
-    }
+
     public function earning_history()
     {
         $earning = Deposits::where('user_id', auth()->user()->id)->orderBy('created_at', 'DESC')->get();

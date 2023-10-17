@@ -35,6 +35,13 @@
           </form>
         </div>
       </li> --}}
+      <li class="nav-item">
+        <a class="nav-link" href="{{ route('admin.messages') }}">
+          <i class="fas fa-envelope"></i>
+          <sup class="badge badge-danger"></sup>
+        </a>
+
+      </li>
 
       <!-- Messages Dropdown Menu -->
 

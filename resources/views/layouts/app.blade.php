@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="/FrontEnd/rockie/app/dist/magnific-popup.css" />
     <link rel="stylesheet" href="../unpkg.com/swiper%4010.2.0/swiper-bundle.min.css" />
     <!-- End Style CSS -->
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="shortcut icon" href="/FrontEnd/rockie/images/logo.svg" />
     <link rel="apple-touch-icon-precomposed" href="/FrontEnd/rockie/images/logo.svg" />
     <script type='text/javascript' src='../pl18200534.highrevenuegate.com/4f/07/82/4f07828118d9983f02124708f3c89d02.js'>
@@ -71,7 +71,7 @@
                                         </li>
 
                                         <li class="menu-item">
-                                            <a href="{{ route('adverts') }}">Advert</a>
+                                            <a href="{{ route('adverts') }}">Posts</a>
                                         </li>
                                         <li class="menu-item">
                                             <a href="{{ route('contactUs') }}">Contact Us</a>
@@ -203,19 +203,19 @@
             </div>
         </div>
         <div class="container-fluid">
-            <div class="footer__bottom" style="display: flex;flex-direction:row;justify-content:space-evenly">
+            <div class="footer__bottom" style="">
                 <p class="text-dark">
                     ©2023 <a href="">brillfund.com</a>. All rights reserved. Terms of Service | Privacy Terms
                 </p>
                 <p class="text-dark">
             <span>
-                <a href="http://instagram.com/Learnify.ng" target="_blank"> <span class="fa-brands fa-instagram" style="color:#FE740E;"></span>jjjjj</a>
+                <a href="" target="_blank"> <i class="fa fa-twitter" aria-hidden="true" style="color:#FE740E;font-size:30px;"></i> </a>
                 </span>
             <span>
-                <a href="http://instagram.com/Learnify.ng" target="_blank"> <span class="fa-brands fa-instagram" style="color:#FE740E;"></span>jjjjj</a>
+                <a href="" target="_blank"> <i class="fa fa-facebook" aria-hidden="true" style="color:#FE740E;font-size:30px;"></i> </a>
                 </span>
             <span>
-                <a href="http://instagram.com/Learnify.ng" target="_blank"> <span class="fa-brands fa-instagram" style="color:#FE740E;"></span>jjjjj</a>
+                <a href="" target="_blank"><i class="fa fa-instagram" aria-hidden="true" style="color:#FE740E;font-size:30px;"></i></a>
                 </span>
                 </p>
 

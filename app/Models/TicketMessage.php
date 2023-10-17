@@ -11,5 +11,9 @@ class TicketMessage extends Model
     protected $fillable = [
         'message',
         'ticket_id',
-];
+    ];
+    public function ticket()
+    {
+        return $this->belongsTo(Ticket::class, 'ticket_id');
+    }
 }

@@ -24,7 +24,7 @@ class TokenController extends Controller
     }
     public function reply(Ticket $ticket, Request $request)
     {
-        dd($ticket);
+        //dd($ticket);
         TicketMessage::create([
             'message' => $request->message2,
             'ticket_id' => $ticket->id,

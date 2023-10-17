@@ -14,16 +14,6 @@
         <div class="row py-1">
             <div class="col-md-1"></div>
             <div class="col-md-10">
-                <div class="row">
-                    <div class="col-md-6">
-                        <form wire:submit.prevent="searchUser">
-                            <div class="form-group">
-                                <input type="text" placeholder="Search User by username...." class="form-control"
-                                    wire:model="searchTerm" id="">
-                            </div>
-                        </form>
-                    </div>
-                </div>
                 @if (session()->has('message'))
                     <div class="alert alert-success">
                         <a href="#" class="close text-white" data-dismiss="alert" aria-label="close">&times;</a>
@@ -39,9 +29,9 @@
                 <table class="table m-0">
                     <thead>
                         <tr>
-                            <th>Name</th>
+                            <th>Token Type</th>
                             <th>Email</th>
-                            <th>Contact</th>
+                            <th>From</th>
                             <th>Status</th>
                             <th>Date</th>
                             <th></th>
@@ -49,35 +39,26 @@
                     </thead>
                     <tbody>
 
-                        @foreach ($users as $data)
+                        @foreach ($tickets as $data)
                             <tr>
-                                <td>{{ $data->name }}</td>
+                                <td>{{ $data->reason }}</td>
                                 <td>{{ $data->email }}</td>
-                                <td>{{ $data->contact }}</td>
+                                <td>{{ $data->sender->name }}</td>
                                 <td>
                                     @if ($data->status == 0)
                                         <button class="btn btn-success text-white">Active</button>
                                     @else
-                                        <button class="btn btn-danger text-white">Banned</button>
+                                        <button class="btn btn-danger text-white">Closed</button>
                                     @endif
 
                                 </td>
                                 <td> {{ \Carbon\Carbon::parse($data->created_at)->format('d D, M Y') }} </td>
                                 <td>
                                     @if ($data->status == 0)
-                                        <button wire:click.prevent="banUser({{ $data->id }})"
-                                            class="btn btn-danger text-white">Ban User</button>
-                                    @else
-                                        <button wire:click.prevent="activateUser({{ $data->id }})"
-                                            class="btn btn-success text-white">Activate User</button>
+                                        <button wire:click.prevent="closeTicket({{ $data->id }})" class="btn btn-success text-white">Close </button>
                                     @endif |
-                                    <a href="{{ route('admin.usersDetails', $data->id) }}"
-                                        class="btn btn-outline-secondary">Details</a>
-                                    @if ($data->user_type == 0 && $data->status == 0)
-                                        |
-                                        <button wire:click.prevent="makeVendor({{ $data->id }})"
-                                            class="btn btn-outline-success">Mark as Vendor</button>
-                                    @endif
+                                    <a href="{{ route('admin.message.details', $data->id) }}" claass="btn btn-outline-secondary">Details</a>
+
                                 </td>
 
                             </tr>
@@ -93,5 +74,5 @@
 
         <!-- /.card-footer -->
     </div>
-    <span style="float: right">{{ $users->links() }}</span>
+    <span style="float: right">{{ $tickets->links() }}</span>
 </div>

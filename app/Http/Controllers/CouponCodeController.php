@@ -19,6 +19,11 @@ class CouponCodeController extends Controller
         $codes = CouponCode::where('user_id',auth()->user()->id)->where('status',1)->get();
         return view('Clients.all-codes', compact('codes'));
     }
+    public function used_codes()
+    {
+        $codes = CouponCode::where('user_id',auth()->user()->id)->where('status',1)->get();
+        return view('Clients.used-codes', compact('codes'));
+    }
     public function generate_code()
     {
         $affiliate_balance = AffiliateBalance::where('user_id', auth()->user()->id)->first();

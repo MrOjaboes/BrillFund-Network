@@ -79,7 +79,7 @@ class RegisterController extends Controller
      */
     public function register(Request $request)
     {
-
+//dd($request->referal_code2);
         $request->validate([
             'first_name' => 'required',
             'last_name' => 'required',
@@ -90,6 +90,7 @@ class RegisterController extends Controller
             'referal_code' => '',
         ]);
         //dd($request->referal_code2);
+
         $url = url('register?ref=');
         $code = DB::table('coupon_codes')
             ->where('code', $request->coupon)
@@ -122,6 +123,8 @@ class RegisterController extends Controller
             //De-activate Coupon for One use
             CouponCode::where('code', $request->coupon_code)->update([
                 'used_status' => 1,
+                'reffered_by' => $request->referal_code2,
+                'used_by' => $user->name,
             ]);
             //Attach affiliate Id
             AffiliateBalance::create([
@@ -217,6 +220,8 @@ class RegisterController extends Controller
                 //Activate Coupon for One use
                 CouponCode::where('code', $request->coupon_code)->update([
                     'used_status' => 1,
+                    'reffered_by' => $request->referal_code2,
+                    'used_by' => $user->name,
                 ]);
 
                 //Handling Welcome Bonus for new User

@@ -17,7 +17,7 @@
                     <div class="col-md-1">
                     </div>
                     <div class="col-md-6 col-12">
-                        <h1>All Codes ({{ $codes->where('status',1)->count() }})</h1>
+                        <h1>Used Codes</h1>
                     </div>
                     <div class="col-md-5">
                     </div>
@@ -30,10 +30,10 @@
                     <div class="col-md-1">
                     </div>
                     <div class="col-md-3">
-                        <a  href="{{ route('home.codes') }}" class="btn" style="background:#FE740E;color:white">Active Codes ({{ $codes->where('used_status',0)->count() }})</a>
+                        <a href="{{ route('home.codes') }}" class="btn" style="background:#FE740E;color:white">Active Codes</a>
                     </div>
                     <div class="col-md-3">
-                        <a href="{{ route('home.usedcodes') }}" class="btn" style="background:#CDCDCD;color:black">Used Codes ({{ $codes->where('used_status',1)->count() }})</a>
+                        <a href="{{ route('home.usedcodes') }}" class="btn" style="background:#CDCDCD;color:black" >Used Codes</a>
                     </div>
                     <div class="col-md-3"></div>
                 </div>
@@ -41,7 +41,7 @@
                 {{-- Second Section --}}
                 <div class="row" id="myDIV2">
                     @foreach ($codes as $item)
-                    @if ($item->used_status == 0)
+                    @if ($item->used_by != null)
                     <div class="col-md-4">
                         <div class="d-flex justify-content-center">
                             <div class="ccard-code justify-content-center align-items-center">
@@ -51,6 +51,10 @@
                                 <div class="d-flex justify-content-between w-p100">
                                     <p class="fw-bolder text-white" style="font-size:20px;margin-top:-20px">
                                         {{ $item->code }}</p>
+                                </div>
+                                <div class="justify-content-between w-p100">
+                                    <p class="fw-bolder text-white" style="margin-top:-20px">Used By : {{ $item->used_by }}</p>
+                                    <p class="fw-bolder text-white" style="margin-top:-20px">Referred By : {{ $item->reffered_by }}</p>
                                 </div>
                                 <div class="d-flex justify-content-center w-p100">
                                     <form>
@@ -71,7 +75,9 @@
                     </div>
                     @endif
                     @endforeach
+
                 </div>
+
                 <div style="margin-bottom: 3%"></div>
             </div>
         </div>
@@ -84,7 +90,8 @@
 <script>
     $(document).ready(function() {
         $("#hide").click(function() {
-     windows.location('home');
+            $("#myDIV2").hide();
+            $("#myDIV").show();
         });
         $("#show").click(function() {
             $("#myDIV").hide();

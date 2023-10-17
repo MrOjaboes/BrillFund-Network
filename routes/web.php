@@ -51,6 +51,11 @@ Route::group(['middleware' => 'isAdmin', 'prefix' => 'admin'], function () {
     Route::get('/quiz/{quiz}/details', [App\Http\Controllers\Admin\QuizController::class, 'quizDetails'])->name('admin.quizDetails');
     Route::post('/quiz/{quiz}/details', [App\Http\Controllers\Admin\QuizController::class, 'updateQuiz'])->name('admin.quiz.update');
 
+    //Token Inquiry section
+    Route::get('/messages', [App\Http\Controllers\Admin\MessageController::class, 'index'])->name('admin.messages');
+    Route::get('/message/{ticket}/details', [App\Http\Controllers\Admin\MessageController::class, 'details'])->name('admin.message.details');
+    Route::post('/message/{ticket}/reply', [App\Http\Controllers\Admin\MessageController::class, 'reply'])->name('admin.message.reply');
+
 
     //Payment Update
     Route::post('/profile/payment', [App\Http\Controllers\Admin\ProfileController::class, 'updateTransferDetails'])->name('admin.payment');
@@ -73,9 +78,13 @@ Route::post('/plan-upgrade', [App\Http\Controllers\PlanController::class, 'planU
 Route::get('/quiz-predict', [App\Http\Controllers\QuizController::class, 'index'])->name('home.quiz');
 Route::post('/quiz-predict-post', [App\Http\Controllers\QuizController::class, 'store'])->name('home.quiz.post');
 Route::get('/dailypost', [App\Http\Controllers\HomeController::class, 'dailypost'])->name('home.dailypost');
-Route::get('/vtu', [App\Http\Controllers\HomeController::class, 'vtu'])->name('home.vtu');
+
+//Vtu Section
+Route::get('/vtu', [App\Http\Controllers\VTUController::class, 'index'])->name('home.vtu');
+Route::post('/vtu/recharge', [App\Http\Controllers\VTUController::class, 'recharge'])->name('home.vtu.recharge');
 //Coupon Code Section
 Route::get('/all-codes', [App\Http\Controllers\CouponCodeController::class, 'all_codes'])->name('home.codes');
+Route::get('/used-codes', [App\Http\Controllers\CouponCodeController::class, 'used_codes'])->name('home.usedcodes');
 Route::get('/generate-code', [App\Http\Controllers\CouponCodeController::class, 'generate_code'])->name('home.generate-code');
 Route::post('/generate-code', [App\Http\Controllers\CouponCodeController::class, 'send_code'])->name('home.generate-code.send');
 

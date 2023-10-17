@@ -51,6 +51,12 @@
                 <p>Dailypost</p>
               </a>
             </li>
+            <li class="nav-item">
+              <a href="{{ route('admin.quiz') }}" class="nav-link {{ request()->is('admin/quiz') ? 'active' : '' || request()->is('admin/quiz/new')}}">
+                <i class="fas fa-envelope nav-icon"></i>
+                <p>Messages</p>
+              </a>
+            </li>
             {{-- <li class="nav-item">
               <a href="{{ route('admin.quiz') }}" class="nav-link {{ request()->is('admin/quiz') ? 'active' : '' || request()->is('admin/quiz/new')}}">
                 <i class="fas fa-book nav-icon"></i>
