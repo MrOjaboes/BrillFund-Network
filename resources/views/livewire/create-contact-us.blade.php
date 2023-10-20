@@ -71,7 +71,7 @@
             </div>
             <div class="col-md-6">
                 <a href="https://wa.me/message/ZHWYRHREPFTFG1" class="btn-action" title="Contact me via Whatsapp"
-                    target="_blank">via Whatsapp </a>
+                    target="_blank">via Telegram </a>
 
             </div>
         </div>

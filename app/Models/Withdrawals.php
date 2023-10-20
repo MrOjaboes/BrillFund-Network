@@ -10,14 +10,13 @@ class Withdrawals extends Model
     use HasFactory;
     protected $fillable = [
         'name',
-        'acct_number',
         'bank',
         'naira_equilvalent',
         'user_id',
         'status',
         'amount',
         'note',
-        'type'
+
     ];
     public function user()
     {

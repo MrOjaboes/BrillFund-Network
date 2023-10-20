@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\Network;
 use App\Models\Vendors;
 use App\Models\Deposits;
 use App\Models\ContactUs;
 use App\Models\DailyPost;
 use App\Models\CouponCode;
 use Illuminate\Http\Request;
+use App\Models\AffiliateBalance;
+use Illuminate\Support\Facades\DB;
 
 class GuestController extends Controller
 {
@@ -31,7 +35,9 @@ class GuestController extends Controller
     }
     public function topEarners()
     {
-        $earners = Deposits::orderBy('balance','DESC')->latest()->take(15)->get();
+        //$secretary = DB::table('affiliate_balances')->orderBy('created_at','DESC')->distinct()->select('user_id')->get();
+
+       $earners = Network::with('user')->orderBy('created_at','DESC')->latest()->take(15)->get();
         return view('top-earners',compact('earners'));
     }
     public function contactUs()
@@ -75,7 +81,8 @@ class GuestController extends Controller
     }
     public function vendors()
     {
-        $vendors = Vendors::orderBy('created_at','DESC')->get();
+      //  $vendors = Vendors::orderBy('created_at','DESC')->get();
+       $vendors = User::where('user_type',2)->orderBy('created_at','DESC')->get();
         return view('vendors',compact('vendors'));
     }
 }

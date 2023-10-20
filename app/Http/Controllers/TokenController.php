@@ -20,6 +20,7 @@ class TokenController extends Controller
     }
     public function details(Ticket $ticket)
     {
+       // dd($ticket->messages);
         return view('Clients.token-details', compact('ticket'));
     }
     public function reply(Ticket $ticket, Request $request)

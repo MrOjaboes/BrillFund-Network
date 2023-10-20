@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\ContactUs;
+use App\Models\CouponCode;
 use App\Models\DailyPost;
 use App\Models\Deposits;
 use App\Models\History;
@@ -45,6 +46,10 @@ class HomeController extends Controller
     public function coupons()
     {
         return view('Admin.coupons');
+    }
+    public function coupon_details(CouponCode $coupon)
+    {
+        return view('Admin.coupon-details',compact('coupon'));
     }
     public function packages()
     {

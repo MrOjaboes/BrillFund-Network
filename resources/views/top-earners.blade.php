@@ -7,7 +7,7 @@
     }
 
     .list-avatar {
-        background: #752092;
+        background: #FE740E;
         border-radius: 50%;
         border: 2px solid #fff;
         padding: 7px;
@@ -50,12 +50,14 @@
                             <div class="col col-md-4">
                                 <div class="custom-list d-flex align-items-center p-2">
                                     <img class="list-avatar"
-                                        src="/FrontEnd/rockie/images/users/41ad9abb267a91b3e7b33681d404f456eaba8271-YPYtW.jpg"alt="">
+                                        src="/FrontEnd/rockie/images/logo.svg"alt="">
                                     <div class="d-flex flex-grow-1 justify-content-between align-items-center ms-3">
                                         <div class="">
-                                            <div class="list-title text-primary fw-bold fs-3">{{ $earner->user->name }}</div>
-                                            <div class="list-desc text-primary fs-4">
-												$ {{ $earner->balance }}
+                                            <div class="list-title text-dark fw-bold fs-3">{{ $earner->user->name }}</div>
+                                            <div class="list-desc text-white fs-4">
+												@if ($earner->user->affiliateBalance->total != null)
+                                                {{'$'.$earner->user->affiliateBalance->total }}
+                                                @endif
 											</div>
                                         </div>
 

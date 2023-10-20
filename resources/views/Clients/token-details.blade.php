@@ -49,11 +49,16 @@
                            <input type="text" class="form-control" readonly value="{{ $ticket->reason }}" id="">
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <div class="col-sm-6">
-                            <textarea name="message" readonly class="form-control" value="{{ $ticket->message }}">{{ $ticket->message }}</textarea>
+                    <div style="overflow-y: scroll;overflow-x: hidden;height:300px">
+                        <div class="form-group row">
+                            <div class="col-sm-6">
+                                @foreach ($messages as $item)
+                                <textarea name="message" readonly class="form-control" value="{{ $item->message }}">{{ $item->messages }}</textarea>
+                                @endforeach
+                            </div>
                         </div>
                     </div>
+
                     <div class="form-group row">
                         <div class="col-sm-6">
                             <textarea name="message2" class="form-control" placeholder="Reply Message" cols="30" rows="10"></textarea>

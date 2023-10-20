@@ -9,9 +9,9 @@
 <head>
     <title>Brillfund Network</title>
     <meta name="keywords" content="peer-to-peer, make money online, money, online website, make money online website, marketting, affiliate marketting" />
-    <meta name="description" content="Learnify">
+    <meta name="description" content="Brillfund Network">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <link rel="shortcut icon" href="FrontEnd/rockie/images/general/e6c7bd70c31050b5fa0ca03ee160388bf0de2427-7iuBe.png">
+    <link rel="shortcut icon" href="FrontEnd/rockie/images/logo.svg">
 
     <!-- Vendors Style-->
     <link rel="stylesheet" href="/FrontEnd/AuthUi/Login/css/vendors_css.css">
@@ -84,8 +84,10 @@
 <body class="hold-transition theme-primary">
 <div class="row mt-5 align-items-center justify-content-md-center" style="padding-top: 5%">
     <div class="col-5">
-        <img src="/FrontEnd/rockie/images/logo.svg" width="200" alt="">
+        <a href="{{url('/')}}">
+            <img src="/FrontEnd/rockie/images/logo.svg" width="200" alt="">
 
+        </a>
     </div>
 </div>
 <div class="container h-p100">
@@ -108,8 +110,8 @@
                            @csrf
                                <div class="form-group row">
                                 <div class="col-sm-12">
-                                  <label for="id" class="col-sm-2 form-label">Login ID</label>
-                                  <input type="text" class="form-control rounded-3" id="id" required placeholder="Email" name="email" autocomplete="off" autocorrect="off">
+                                  <label for="id" class="col-sm-4 form-label">Username / Email</label>
+                                  <input type="text" class="form-control rounded-3" id="id" required placeholder="Username / Email" name="email" autocomplete="off" autocorrect="off">
                                 </div>
                                 @error('email')
                                 <span style="color:red" role="alert">

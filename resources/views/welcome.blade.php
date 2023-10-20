@@ -10,17 +10,20 @@
     <section class="banner">
         <div class="container">
             <div class="row">
-                <div class="col-md-1"></div>
                 <div class="col-md-5">
-                    <h3 class="heading">FINANCIALLY FREE WITH <span style="color:#FE740E">BRILLFUND</span></h3>
+                    <div class="heading-side">
+                         <h3 class="heading">FINANCIALLY FREE WITH <span style="color:#FE740E">BRILLFUND</span></h3>
                     <p class="fs-20 desc">
                         The NO1 Innovation platform that rewards
                         users for their active participation
                     </p>
-                </div>
-                <div class="col-md-6">
+                    <p class="mt-5"><a href="{{ route('register') }}" class="btn" style="background-color:#FE740E;color:white">Get Started</a></p>
+
+                    </div>
+                   </div>
+                <div class="col-md-7">
                     <div class="banner__image">
-                        <img src="/FrontEnd/rockie/images/figures.png" width="500" alt="" />
+                        {{-- <img src="/FrontEnd/rockie/images/figures.png" width="600" alt="" /> --}}
                     </div>
                 </div>
             </div>
@@ -31,16 +34,16 @@
     <section class="services-2 bg">
         <div class="container">
             <div class="row pt-3">
-                <div class="col-xl-1"></div>
-                <div class="col-xl-5 col-md-12">
-                    <h3 class="heading">
+                <div class="col-md-6">
+                   <div class="heading-side">
+                     <h3 class="heading">
                         How BRILLFUND <br>
                         <span style="color:#FE740E">WORKS</span>
-                    </h3>
+                   </div>
 
                 </div>
-                <div class="col-xl-6 col-md-12">
-                    <div class="services__content" data-aos="fade-up" data-aos-duration="1000">
+                <div class="col-md-6">
+                    <div class="services__content" id="hbw" data-aos="fade-up" data-aos-duration="1000">
 
                         <ul class="list">
                             <li class="active">
@@ -127,18 +130,19 @@
                     background-size: 60%;">
         <div class="container">
             <div class="row">
-                <div class="col-xl-1"></div>
-                <div class="col-xl-5 col-md-12">
+                <div class="col-xl-6 col-md-12">
+                   <div class="heading-side">
                     <h3 class="heading">
                         Our <br>
                         <span style="color:#FE740E">Withdrawal</span><br>
                         Method
                     </h3>
+                   </div>
 
                 </div>
                 <div class="col-xl-6 col-md-12"> </div>
             </div>
-            <div class="row">
+            <div class="row" id="col-4">
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
                     <div class="justify-content-center" style="background: #D9D9D966;border-radius:17px;padding:10px">
@@ -157,7 +161,7 @@
     <section class="testimonials-2">
         <div class="container">
             <div class="row">
-                <div class="col-xl-4 col-md-12">
+                <div class="col-xl-4 col-md-12" id="col-1">
                     <div class="card">
                         <div class="card-body" style="background: #D9D9D966">
                             <img src="/FrontEnd/rockie/images/Mask group.svg" class="img-thumbnail" alt="">
@@ -168,7 +172,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-4 col-md-12">
+                <div class="col-xl-4 col-md-12" id="col-2">
                     <div class="card">
                         <div class="card-body" style="background: #D9D9D966">
                             <img src="/FrontEnd/rockie/images/Mask group.svg" class="img-thumbnail" alt="">
@@ -179,7 +183,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-4 col-md-12">
+                <div class="col-xl-4 col-md-12" id="col-3">
                     <div class="card">
                         <div class="card-body" style="background: #D9D9D966">
                             <img src="/FrontEnd/rockie/images/Mask group.svg" class="img-thumbnail" alt="">

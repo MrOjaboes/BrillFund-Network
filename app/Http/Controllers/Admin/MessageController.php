@@ -22,15 +22,22 @@ class MessageController extends Controller
     public function details(Ticket $ticket)
     {
         $responses = TicketMessage::where('ticket_id',$ticket->id)->get();
-      //  dd($responses);
+      //dd($ticket->sender_id);
         return view('Admin.Messages.details', compact('ticket','responses'));
     }
     public function reply(Ticket $ticket, Request $request)
     {
-      //  dd($ticket);
+       //dd($ticket->sender_id);
         TicketMessage::create([
             'message' => $request->message2,
             'ticket_id' => $ticket->id,
+        ]);
+        Ticket::create([
+            'message' => $request->message2,
+            'sender_id' => auth()->user()->id,
+            'email' => auth()->user()->email,
+            'reason' =>  $ticket->reason,
+            'reciever_id' => $ticket->sender_id,
         ]);
         return redirect()->back()->with('message', 'Message Sent Successfully!');
     }

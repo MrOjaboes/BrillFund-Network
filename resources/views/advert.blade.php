@@ -51,7 +51,7 @@
                                 <a href="" class="title">{{ $post->title }}</a>
 
                                 <div class="meta">
-                                    <a href="#" class="name"><span></span>DexEarn</a>
+                                    <a href="#" class="name"><span></span>Brillfund</a>
                                     <a href="#" class="time">{{ \Carbon\Carbon::parse($post->created_at)->format('d D, M Y') }}
                                         - {{ \Carbon\Carbon::parse($post->created_at)->format('H:i A') }}</a>
                                 </div>

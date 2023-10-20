@@ -7,7 +7,7 @@
     }
 
     .list-avatar {
-        background: #752092;
+        background: #FE740E;
         border-radius: 50%;
         border: 2px solid #fff;
         padding: 7px;
@@ -31,7 +31,7 @@
                     <ul class="breadcrumb">
 
                         <li>
-                            <p class="fs-18"><a href="{{ route('vendor.register') }}" class="btn" style="background:#752092 ;color:white">Sign Up</a> as a vendor</p>
+                            <p class="fs-18"><a href="{{ route('register') }}" class="btn" style="background:#FE740E ;color:white">Sign Up</a> as a vendor</p>
                         </li>
                     </ul>
                 </div>
@@ -52,17 +52,17 @@
                            <div class="col col-md-4">
                             <div class="custom-list d-flex align-items-center p-2">
                                 <img class="list-avatar"
-                                    src="/FrontEnd/rockie/images/users/41ad9abb267a91b3e7b33681d404f456eaba8271-YPYtW.jpg"alt="">
+                                    src="/FrontEnd/rockie/images/logo.svg" alt="">
                                 <div class="d-flex flex-grow-1 justify-content-between align-items-center ms-3">
                                     <div class="">
-                                        <div class="list-title text-primary fw-bold fs-3">{{ Str::upper($vendor->name) }}</div>
+                                        <div class="list-title text-dark  fw-bold fs-3">{{ Str::upper($vendor->name) }}</div>
                                         <div class="list-desc text-primary fs-6">
-                                            <i class="ri-bank-fill"></i>
-                                            {{ $vendor->bank }}
+                                            {{-- <i class="ri-bank-fill"></i>
+                                            {{ $vendor->bank }} --}}
                                         </div>
                                     </div>
                                     <div>
-                                        <a href="https://api.whatsapp.com/send?phone=+{{ $vendor->phone }}&amp;text=Hello%2C%20Good%20day%20-%20I%20want%20To%20Purchase%20LEARNIFY%20Coupon%20Code"
+                                        <a href="https://api.whatsapp.com/send?phone=+{{ $vendor->contact }}&amp;text=Hello%2C%20Good%20day%20-%20I%20want%20To%20Purchase%20Brillfund%20Coupon%20Code"
                                             target="_blank"><img width="70"
                                                 src="/FrontEnd/rockie/images/whatsapp.gif"
                                                 alt=""></a>

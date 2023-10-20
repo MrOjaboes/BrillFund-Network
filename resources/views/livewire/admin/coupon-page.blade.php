@@ -87,7 +87,7 @@
                                 <td class="">
                                     <button wire:click.prevent="activateCoupon({{ $data->id }})" class="btn btn-success text-white">Activate</button>
 
-                                    {{-- <button wire:click.prevent="deactivateCoupon({{ $data->id }})" class="btn btn-warning text-white">Cancel</button> --}}
+                                    <a href="{{route('admin.coupon-details', $data->id )}}" class="btn btn-outline-secondary">Details</a>
 
                                 </td>
 

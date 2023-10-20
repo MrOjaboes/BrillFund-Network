@@ -111,23 +111,41 @@ class HomeController extends Controller
     {
         $request->validate([
             'amount' => 'required',
+            'withdrawal_type' => 'required|in:1,2',
         ]);
-       dd($request->all());
         $affiliate_balance = AffiliateBalance::where('user_id', auth()->user()->id)->first();
+       // dd($affiliate_balance->total);
         $activity_balance = ActivityBalance::where('user_id', auth()->user()->id)->sum('balance');
         $ban = WithDrawalBan::where('status', 0)->first();
-        if ($ban) {
+        $act_ban = WithDrawalBan::where('task_status', 0)->first();
+        if ($ban || $act_ban) {
             return redirect()->back()->with('error', 'Withdrawal Status is Currently In-Active!');
         }
-                if ($request->amount > $activity_balance) {
-                    return redirect()->back()->with('error', 'Indufficient Fund!');
-                }
+
+        if ($request->withdrawal_type == 1) {
+            if ($request->amount > $affiliate_balance->total) {
+                return redirect()->back()->with('error', 'Indufficient Fund in your Affiliate balance!');
+            }
             Withdrawals::create([
                 'user_id' => auth()->user()->id,
                 'name' => auth()->user()->name,
                 'amount' => $request->amount,
-                'note' => 'Affiliate Withdrawal',
+                'note' => ' Affiliate Withdrawal',
             ]);
+        }
+        if ($request->withdrawal_type == 2) {
+            if ($request->amount > $activity_balance) {
+                return redirect()->back()->with('error', 'Indufficient Fund in your Activity balance!');
+            }
+            Withdrawals::create([
+                'user_id' => auth()->user()->id,
+                'name' => auth()->user()->name,
+                'amount' => $request->amount,
+                'note' => 'Activity Withdrawal',
+            ]);
+        }
+
+
             return redirect()->back()->with('message', 'Request Submitted Successfully!');
         }
 

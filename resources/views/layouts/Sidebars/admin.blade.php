@@ -52,9 +52,12 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="{{ route('admin.quiz') }}" class="nav-link {{ request()->is('admin/quiz') ? 'active' : '' || request()->is('admin/quiz/new')}}">
+              <a href="{{ route('admin.messages') }}" class="nav-link {{ request()->is('admin/messages') ? 'active' : ''}}">
                 <i class="fas fa-envelope nav-icon"></i>
-                <p>Messages</p>
+                @php
+                $tickets = App\Models\Ticket::where('status',0)->where('reciever_id',1)->count();
+            @endphp
+                <p>Messages <span class="badge badge-danger">{{ $tickets }}</span></p>
               </a>
             </li>
             {{-- <li class="nav-item">

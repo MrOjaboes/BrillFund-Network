@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <title>Brillfund Network</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="peer-to-peer, make money online, money, online website, make money online website, marketting, affiliate marketting" />
+    <meta name="description" content="Brillfund Network">
 
     <!-- MATERIAL DESIGN ICONIC FONT -->
     <link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
@@ -16,7 +18,16 @@
             height: 25px;
             width: 75%;
         }
-
+ @media only screen and (max-width: 600px) and (min-width: 360px) {
+            .form-control {
+            width: 100%;
+        }
+        #p1{
+            display:flex;
+            flex-direction:column;
+        }
+        }
+        }
         button {
             margin-top: 27px;
             margin-left: 24px;
@@ -121,7 +132,7 @@
                 </div>
                 <div class="row" style="padding-top:20px;">
                     <div class="col-md-6" style="color: #FE740E">
-                        <p style="color: #FE740E">Already Have an account? <a style="margin-right: 20px;" href="{{ route('login') }}">Login</a>
+                        <p id="p1" style="color:#FE740E"><a style="margin-right:15px;" href="{{ route('login') }}">Already Have an account? Login</a>
                             <a href="{{ route('activation.code') }}" style="color: #FE740E">Get Coupon Code</a>
                         </p>
                     </div>

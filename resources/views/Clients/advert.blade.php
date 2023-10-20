@@ -1,31 +1,28 @@
-
-<script>
-    function adOpen(url) {
-        window.open(url, '_blank').focus();
-    }
-</script>
-
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="en">
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+
 <head>
     <!-- meta tag -->
     <meta charset="utf-8">
-    <title>L-EARNIFY - Enhance your Skills, increase your worth</title>
-    <meta name="description" content="Learnify">
+    <title>Brillfund Network</title>
+    <meta name="description" content="BrillFund Network">
     <!-- responsive tag -->
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- Style CSS -->
-    <link rel="stylesheet" href="https://www.learnify.ng/rockie/app/dist/app.css" />
-    <link rel="stylesheet" href="https://www.learnify.ng/rockie/app/dist/magnific-popup.css" />
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="/FrontEnd/rockie/app/dist/app.css" />
+    <link rel="stylesheet" href="/FrontEnd/rockie/app/dist/magnific-popup.css" />
+    <link rel="stylesheet" href="../unpkg.com/swiper%4010.2.0/swiper-bundle.min.css" />
     <!-- End Style CSS -->
-
-    <link rel="shortcut icon" href="https://www.learnify.ng/images/general/e6c7bd70c31050b5fa0ca03ee160388bf0de2427-7iuBe.png" />
-    <link rel="apple-touch-icon-precomposed" href="https://www.learnify.ng/images/general/e6c7bd70c31050b5fa0ca03ee160388bf0de2427-7iuBe.png" />
-
-<script type='text/javascript' src='//pl19608949.highrevenuegate.com/50/a2/5d/50a25d7598e0f7ee6bd8561cb5870210.js'></script>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+        integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="shortcut icon" href="/FrontEnd/rockie/images/logo.svg" />
+    <link rel="apple-touch-icon-precomposed" href="/FrontEnd/rockie/images/logo.svg" />
+    <script type='text/javascript' src='../pl18200534.highrevenuegate.com/4f/07/82/4f07828118d9983f02124708f3c89d02.js'>
+    </script>
 </head>
 <body class="body header-fixed home-3">
     <!-- Header -->

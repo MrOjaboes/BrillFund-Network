@@ -33,7 +33,9 @@ Route::group(['middleware' => 'isAdmin', 'prefix' => 'admin'], function () {
     Route::get('/', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('admin');
     Route::get('/users', [App\Http\Controllers\Admin\HomeController::class, 'getusers'])->name('admin.users');
     Route::get('/user/{user}/details', [App\Http\Controllers\Admin\HomeController::class, 'userDetails'])->name('admin.usersDetails');
+//Coupon Section
     Route::get('/coupons', [App\Http\Controllers\Admin\HomeController::class, 'coupons'])->name('admin.coupons');
+    Route::get('/coupon/{coupon}/details', [App\Http\Controllers\Admin\HomeController::class, 'coupon_details'])->name('admin.coupon-details');
     Route::get('/withdrawals', [App\Http\Controllers\Admin\WithdrawalController::class, 'index'])->name('admin.withdrawals');
     Route::get('/withdrawals/{withdrawal}/details', [App\Http\Controllers\Admin\WithdrawalController::class, 'withdrawalDetails'])->name('admin.withdrawalDetails');
     Route::get('/deposits', [App\Http\Controllers\Admin\DepositController::class, 'index'])->name('admin.deposits');

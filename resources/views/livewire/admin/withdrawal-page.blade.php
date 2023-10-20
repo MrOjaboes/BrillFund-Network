@@ -50,6 +50,7 @@
                             <th>Name</th>
                             <th>Amount</th>
                             <th>Status</th>
+                            <th>Remark(s)</th>
                             <th>Date</th>
                             {{-- <th></th> --}}
                         </tr>
@@ -63,7 +64,7 @@
 
                                 <td>{{ $i }}</td>
                                 <td>{{ $data->name }}</td>
-                                <td>${{ $data->amount }}</td>
+                                <td>{{'$'. $data->amount }}</td>
                                 <td class="">
                                     @if ($data->status == 0)
                                     <button wire:click.prevent="changeStatus({{ $data->id }})" class="btn btn-warning text-white">Pending</button>
@@ -71,6 +72,7 @@
                                     <button class="btn btn-success text-white">Approved</button>
                                     @endif
                                 </td>
+                                <td>{{ $data->note }}</td>
                                 <td>  {{ \Carbon\Carbon::parse($data->created_at)->format('d D, M Y') }} </td>
                                 <td><a href="{{ route('admin.withdrawalDetails',$data->id) }}" class="btn btn-outline-secondary">Details</a></td>
 

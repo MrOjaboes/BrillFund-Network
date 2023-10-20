@@ -16,13 +16,16 @@
     <link rel="stylesheet" href="/FrontEnd/rockie/app/dist/magnific-popup.css" />
     <link rel="stylesheet" href="../unpkg.com/swiper%4010.2.0/swiper-bundle.min.css" />
     <!-- End Style CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+        integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="shortcut icon" href="/FrontEnd/rockie/images/logo.svg" />
     <link rel="apple-touch-icon-precomposed" href="/FrontEnd/rockie/images/logo.svg" />
     <script type='text/javascript' src='../pl18200534.highrevenuegate.com/4f/07/82/4f07828118d9983f02124708f3c89d02.js'>
     </script>
 
     @livewireStyles
+
 </head>
 
 <body class="body header-fixed home-3">
@@ -52,7 +55,7 @@
                                         </li>
 
                                         <li class="menu-item-has-children">
-                                            <a href="#">Other Links</a>
+                                            <a href="#">Other Info</a>
 
                                             <ul class="sub-menu">
                                                 <li class="menu-item">
@@ -61,21 +64,20 @@
                                                 <li class="menu-item">
                                                     <a href="{{ route('coupon.verify') }}">Verify Coupon Code</a>
                                                 </li>
-                                                {{-- <li class="menu-item">
-                                                    <a href="{{ route('howitworks') }}">How it Works</a>
-                                                </li> --}}
+                                                <li class="menu-item">
+                                                    <a href="{{ route('adverts') }}">Posts</a>
+                                                </li>
                                                 <li class="menu-item">
                                                     <a href="{{ route('topEarners') }}">Top Earners</a>
                                                 </li>
                                             </ul>
                                         </li>
 
-                                        <li class="menu-item">
-                                            <a href="{{ route('adverts') }}">Posts</a>
-                                        </li>
+
                                         <li class="menu-item">
                                             <a href="{{ route('contactUs') }}">Contact Us</a>
                                         </li>
+
                                         <li class="menu-item-has-children">
                                             <a href="#"> Pages </a>
                                             <ul class="sub-menu">
@@ -88,6 +90,12 @@
                                                 </li>
                                             </ul>
                                         </li>
+                                        <li class="menu-item" id="m-login">
+                                            <a href="{{ route('login') }}" class="btn" style="border:none;width:110px;background:#FE740E;color:white">Sign In</a>
+                                        </li>
+                                        <li class="menu-item" id="m-register">
+                                            <a href="{{ route('register') }}" class="btn" style="border:none;width:116px;background:#FE740E;color:white">Sign Up</a>
+                                        </li>
 
                                     </ul>
                                 </nav>
@@ -96,9 +104,11 @@
                         </div>
 
                         <div class="header__right">
-                            <div class="menu-item">
-                                <a href="{{ route('login') }}" class="btn" style="border:none;width:100px;background:#FE740E;color:white"> Login </a> /
-                                <a href="{{ route('register') }}" class="btn" style="border:none;width:100px;background:#FE740E;color:white"> Sign up </a>
+                            <div class="menu-item" id="auth-button">
+                                <a href="{{ route('login') }}" class="btn"
+                                    style="border:none;width:100px;background:#FE740E;color:white"> Login </a> /
+                                <a href="{{ route('register') }}" class="btn"
+                                    style="border:none;width:100px;background:#FE740E;color:white"> Sign up </a>
                             </div>
                             <div class="mode-switcher">
                                 <a class="sun" href="#" onclick="switchTheme()">
@@ -162,18 +172,22 @@
                     <div class="col-xl-2 col-md-6">
                         <div class="info">
                             <a href="{{ url('/') }}" class="logo">
-                                <img style="width:200px;margin-left:20px" src="/FrontEnd/rockie/images/logo.svg"
+                                <img style="width: 200px; margin-left: 20px" src="/FrontEnd/rockie/images/logo.svg"
                                     alt="" />
                             </a>
                         </div>
                     </div>
                     <div class="col-xl-6 col-md-6">
                         <div class="widget">
-                            <div class="widget-link">
-                               <p class="fs-20 desc">Join the Fastest growing innovation platform now and make money from the comfort of your home</p>
-                               <a href="" class="btn" style="background: #FE740E;color:white">Know more/Default</a>
+                            <div class="widget-link" id="mp-side">
+                                <p class="fs-20 desc">
+                                    Join the Fastest growing innovation platform now and make money from
+                                    the comfort of your home
+                                </p>
+                                <a href="" class="btn" style="background: #fe740e; color: white">Know
+                                    more/Default</a>
                             </div>
-                            <div class="widget-link s2" style="color: #000000">
+                            <div class="widget-link s2" id="s1" style="color: #000000">
                                 <h6 class="title" style="color: #000000">RESOURCES</h6>
                                 <ul>
                                     <li><a href="{{ route('adverts') }}">About</a></li>
@@ -181,12 +195,11 @@
                                     <li><a href="{{ route('activation.code') }}">Contact</a></li>
                                 </ul>
                             </div>
-
                         </div>
                     </div>
                     <div class="col-xl-4 col-md-4">
                         <div class="widget">
-                            <div class="widget-link s2" style="color: #000000">
+                            <div class="widget-link s2" id="s2" style="color: #000000">
                                 <h6 class="title" style="color: #000000">Special Features</h6>
                                 <ul>
                                     <li><a href="{{ route('adverts') }}">VTU Platform</a></li>
@@ -196,9 +209,31 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-md-12">
+                    <div class="col-xl-4 col-md-12"></div>
+                </div>
 
+                <div class="row pt-3" id="mobile-footer">
+                    <div class="col-xl-4 col-md-6">
+                        <div class="widget">
+                            <div class="widget-link">
+                                <h6 class="title" style="color: #000000">RESOURCES</h6>
+                                <ul>
+                                    <li><a href="{{ route('adverts') }}">About</a></li>
+                                    <li><a href="{{ route('topEarners') }}">T’s and C’s</a></li>
+                                    <li><a href="{{ route('activation.code') }}">Contact</a></li>
+                                </ul>
+                            </div>
+                            <div class="widget-link s2">
+                                <h6 class="title" style="color: #000000">Special Features</h6>
+                                <ul>
+                                    <li><a href="{{ route('adverts') }}">VTU Platform</a></li>
+                                    <li><a href="{{ route('topEarners') }}">Casino Platform</a></li>
+                                    <li><a href="{{ route('activation.code') }}">Token Info</a></li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -208,15 +243,18 @@
                     ©2023 <a href="">brillfund.com</a>. All rights reserved. Terms of Service | Privacy Terms
                 </p>
                 <p class="text-dark">
-            <span>
-                <a href="" target="_blank"> <i class="fa fa-twitter" aria-hidden="true" style="color:#FE740E;font-size:30px;"></i> </a>
-                </span>
-            <span>
-                <a href="" target="_blank"> <i class="fa fa-facebook" aria-hidden="true" style="color:#FE740E;font-size:30px;"></i> </a>
-                </span>
-            <span>
-                <a href="" target="_blank"><i class="fa fa-instagram" aria-hidden="true" style="color:#FE740E;font-size:30px;"></i></a>
-                </span>
+                    <span>
+                        <a href="" target="_blank"> <i class="fa fa-twitter" aria-hidden="true"
+                                style="color:#FE740E;font-size:30px;"></i> </a>
+                    </span>
+                    <span>
+                        <a href="" target="_blank"> <i class="fa fa-facebook" aria-hidden="true"
+                                style="color:#FE740E;font-size:30px;"></i> </a>
+                    </span>
+                    <span>
+                        <a href="" target="_blank"><i class="fa fa-instagram" aria-hidden="true"
+                                style="color:#FE740E;font-size:30px;"></i></a>
+                    </span>
                 </p>
 
             </div>

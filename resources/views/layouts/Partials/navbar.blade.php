@@ -38,7 +38,10 @@
       <li class="nav-item">
         <a class="nav-link" href="{{ route('admin.messages') }}">
           <i class="fas fa-envelope"></i>
-          <sup class="badge badge-danger"></sup>
+          @php
+              $tickets = App\Models\Ticket::where('status',0)->where('reciever_id',1)->count();
+          @endphp
+          <sup class="badge badge-danger">{{ $tickets }}</sup>
         </a>
 
       </li>

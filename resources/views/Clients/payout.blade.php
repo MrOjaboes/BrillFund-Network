@@ -40,11 +40,46 @@
                 </div>
                 <div style="margin-bottom: 5%"></div>
                 <h3>Withdraw Funds</h3>
+                <div class="row">
+                    <div class="col-md-6"></div>
+                    <div class="col-md-6">
+                        @if (session()->has('message'))
+                             <div style="background:#18d26b;color:white;" class="alert">
+                                <a href="#" class="close text-white" data-dismiss="alert"
+                                    aria-label="close">&times;</a>
+                                {{ session('message') }}
+                            </div>
+                         
+                    @endif
+                    @if (session()->has('error'))
+                        <div style="background:rgb(238, 46, 46);color:white;" class="alert">
+                            <a href="#" class="close text-white" data-dismiss="alert"
+                                aria-label="close">&times;</a>
+                            {{ session('error') }}
+                        </div>
+
+                @endif
+                    </div>
+                </div>
                 <form class="form-horizontal form-element" action="{{ route('home.payout.request') }}" method="post">
                     @csrf
                     <div class="form-group row">
                         <div class="col-sm-6">
-                            <input type="number" class="form-control" name="amount" placeholder="Amount">
+                                  <select class="form-control" name="withdrawal_type" required>
+                                    <option value="1">Affiliate</option>
+                                    <option value="2">Activity Balance</option>
+                                  </select>
+                                  @error('withdrawal_type')
+                                  <span style="color: red">{{ $message }}</span>
+                                @enderror
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+                            <input type="number" class="form-control" name="amount" placeholder="Amount" required>
+                            @error('amount')
+                              <span style="color: red">{{ $message }}</span>
+                            @enderror
                         </div>
                     </div>
                     <div style="margin-bottom:5%"></div>

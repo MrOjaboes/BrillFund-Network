@@ -76,7 +76,10 @@
                     <li>
                         <a href="{{ route('home.token') }}">
                             <img src="/FrontEnd/rockie/images/brill_token.svg" class=""alt=""></i>
-                            <span>Buy Brill Token</span>
+                            @php
+                            $tickets = App\Models\Ticket::where('status',0)->where('reciever_id', auth()->user()->id)->count();
+                        @endphp
+                            <span>Buy Brill Token <small style="background-color:red;color:white">{{ $tickets }}</small></span>
                         </a>
                     </li>
                     <li>
