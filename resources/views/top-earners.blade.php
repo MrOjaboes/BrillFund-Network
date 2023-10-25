@@ -46,6 +46,7 @@
                     <div class="sec-title mb-35">
 
                         <div class="row gy-4">
+
                             @foreach ($earners as $earner)
                             <div class="col col-md-4">
                                 <div class="custom-list d-flex align-items-center p-2">
@@ -53,10 +54,10 @@
                                         src="/FrontEnd/rockie/images/logo.svg"alt="">
                                     <div class="d-flex flex-grow-1 justify-content-between align-items-center ms-3">
                                         <div class="">
-                                            <div class="list-title text-dark fw-bold fs-3">{{ $earner->user->name }}</div>
+                                            <div class="list-title text-dark fw-bold fs-3">{{ $earner->name }}</div>
                                             <div class="list-desc text-white fs-4">
-												@if ($earner->user->affiliateBalance->total != null)
-                                                {{'$'.$earner->user->affiliateBalance->total }}
+												@if ($earner->affiliateBalance->total != null && $earner->affiliateBalance->total != 0)
+                                                {{'$'. $earner->affiliateBalance->total}}
                                                 @endif
 											</div>
                                         </div>

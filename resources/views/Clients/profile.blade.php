@@ -16,6 +16,7 @@
                 <div class="row">
 
                     <div class="col-md-4">
+                        <h3 class="text-justify">My Profile</h3>
                         <div class="ccard-profile justify-content-center align-items-center">
                             @if (Auth::user()->profile_photo == null)
                             <img src="/FrontEnd/rockie/images/logo.svg" width="200" alt="">
@@ -81,7 +82,7 @@
                         </div>
                     </div>
 
-                     <div class="col-6">
+                     <div class="col-md-6">
                         <button type="submit" class="btn-custom w-p100" style="background: #FE740E;color:white">Update
                             Details </button>
                     </div>
@@ -114,7 +115,7 @@
                         </div>
                     </div>
 
-                    <div class="col-6">
+                    <div class="col-md-6">
                         <button type="submit" class="btn-custom w-p100" style="background: #FE740E;color:white">Update
                             Password </button>
                     </div>

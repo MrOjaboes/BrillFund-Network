@@ -29,12 +29,18 @@
                 <div class="row">
                     <div class="col-md-1">
                     </div>
-                    <div class="col-md-3">
-                        <a  href="{{ route('home.codes') }}" class="btn" style="background:#FE740E;color:white">Active Codes ({{ $codes->where('used_status',0)->count() }})</a>
-                    </div>
-                    <div class="col-md-3">
-                        <a href="{{ route('home.usedcodes') }}" class="btn" style="background:#CDCDCD;color:black">Used Codes ({{ $codes->where('used_status',1)->count() }})</a>
-                    </div>
+                    <div class="col-md-6" id="codes">
+                        <div>
+                            <a  href="{{ route('home.codes') }}" class="btn" style="background:#FE740E;color:white">Active Codes ({{ $codes->where('used_status',0)->count() }})</a>
+
+                        </div>
+                        <div>
+                            <a href="{{ route('home.usedcodes') }}" class="btn" style="background:#CDCDCD;color:black">Used Codes ({{ $codes->where('used_status',1)->count() }})</a>
+
+                        </div>
+                       </div>
+
+                       </div>
                     <div class="col-md-3"></div>
                 </div>
                 <div style="margin-bottom: 3%"></div>
@@ -58,10 +64,10 @@
                                             <input type="text" class="code form-control border-0"
                                                 value="{{ $item->code }}" readonly>
 
-                                            <button onclick="triggerExample()" class="btn mt-5"
+                                            {{-- <button onclick="triggerExample()" class="btn mt-5"
                                                 style="background:#ffffff;color:#FE740E">
                                                 Copy Code
-                                            </button>
+                                            </button> --}}
                                         </div>
                                     </form>
                                     <div class="copy-feedback d-none text-white">Code copied!</div>

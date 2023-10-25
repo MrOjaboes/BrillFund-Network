@@ -1,5 +1,17 @@
 @extends('layouts.affiliate')
-
+<style>
+@media only screen and (max-width: 600px) and (min-width: 360px) {
+    #p2p-heading h1{
+        font-size: 26px;
+    }
+    #payout-img{
+        margin-bottom: 12px;
+    }
+    .p2p-balance{
+       width: 100%;
+    }
+}
+ </style>
 @section('content')
     <div class="wrapper">
         <header class="main-header">
@@ -8,18 +20,17 @@
             <!-- Header Navbar -->
 
         </header>
-
         @include('layouts.Partials.sidebar')
         <div class="content-wrapper">
             <div class="container">
                 <!-- Main content -->
                 <div class="row">
-                    <div class="col-md-1"> </div>
-                    <div class="col-md-6 col-12">
-                        <h1 class="heading">P2P <b style="color:#FE740E">Registration</b><img
+                    <div class="col-md-6">
+                        <h1 id="p2p-heading" class="">P2P <b style="color:#FE740E">Registration</b><img
                                 src="/FrontEnd/rockie/images/p2p.svg" width="50" alt=""></h1>
                         <p>
                             Register a new user with your activities <br> earnings and keep the registration fee.
+
                         </p>
                     </div>
                     <div class="col-md-5"></div>
@@ -27,8 +38,8 @@
 
                 {{-- First Section --}}
                 <div class="row">
-                    <div class="col-6">
-                        <div class="d-flex justify-content-center">
+                    <div class="col-md-6" id="p2p">
+                        <div class="d-flex justify-content-center mg-left">
                             <div class="ccard-payout justify-content-center align-items-center">
                                 <div class="d-flex justify-content-between w-p100">
                                     <h3 style="margin-top: 18px">Activity Balance</h3>
@@ -38,6 +49,7 @@
                                 </div>
                             </div>
                         </div>
+                        <p style="color: red;">Note:- User Registeration cost 12000BP</p>
                     </div>
                 </div>
                 <div style="margin-bottom: 3%"></div>

@@ -14,13 +14,13 @@ class VTUController extends Controller
     }
     public function index()
     {
-       
         $affiliate_balance = AffiliateBalance::where('user_id',auth()->user()->id)->first();
         return view('Clients.vtu', compact('affiliate_balance'));
     }
     public function recharge(Request $request)
     {
-        $response = Http::get('https://vtu.ng/wp-json/api/v1/balance?username=BrillfundNetwork&password=Brill@money120');
+        return redirect()->back();
+        $response = Http::get('https://vtu.ng/wp-json/api/v1/balance?email=BrillfundNetwork@gmail.com&password=Brill@network77');
         return json_decode($response);
         return view('Clients.vtu');
     }

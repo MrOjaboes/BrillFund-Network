@@ -14,8 +14,8 @@
             <div class="container">
                 <!-- Main content -->
                 <div class="row pt-5">
-                    <div class="col-md-1"> </div>
-                    <div class="col-md-6 col-12">
+
+                    <div class="col-md-6">
                         <h1 class="heading">Generate <b style="color:#FE740E">Code</b></h1>
 
                     </div>
@@ -24,9 +24,9 @@
 
                 {{-- First Section --}}
                 <div class="row">
-                    <div class="col-6">
-                        <div class="d-flex justify-content-center">
-                            <div class="ccard-payout justify-content-center align-items-center">
+                    <div class="col-md-6" id="gc">
+                        <div class="mg-left d-flex justify-content-center">
+                            <div class="ccard-payout justify-content-center align-items-center" id="mtp1">
                                 <div class="d-flex justify-content-between w-p100">
                                     <h3 style="margin-top: 18px">Affiliate Balance</h3>
                                 </div>
@@ -61,10 +61,10 @@
                 <div style="margin-bottom: 3%"></div>
                 {{-- Form Section --}}
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-md-12">
                         <form class="form-horizontal form-element" action="{{ route('home.generate-code.send') }}" enctype="multipart/form-data" method="post">
                             @csrf
-                            <div class="form-group row">
+                            {{-- <div class="form-group row">
                                 <div class="col-sm-6">
                                     <select name="number_of_code" class="form-control" id="">
                                         <option value="">--- Select Number Of Code(s) ---</option>
@@ -80,17 +80,18 @@
                                         </span>
                                     @enderror
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="form-group row">
                                 <div class="col-sm-6">
-                                    <select name="amount_paid" class="form-control" id="">
+                                    {{-- <select name="amount_paid" class="form-control" id="">
                                         <option value="">--- Amount Paid ---</option>
                                         <option value="5000">5000</option>
                                         <option value="10000">10000</option>
                                         <option value="15000">15000</option>
                                         <option value="20000">20000</option>
                                         <option value="25000">25000</option>
-                                    </select>
+                                    </select> --}}
+                                    <input type="number" class="form-control" name="amount_paid" placeholder="Amount">
                                     @error('amount_paid')
                                         <span style="color:red" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -109,7 +110,7 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <div class="col-md-6">
                                 <button type="submit" class="btn-custom w-p100" style="background: #FE740E;color:white">Generate Code
                                 </button>
                             </div>
@@ -119,11 +120,11 @@
                 {{-- End Form Section --}}
                 <div style="margin-bottom: 3%"></div>
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-md-6">
                         <div class="d-flex justify-content-center">
-                            <div class="ccard-payout justify-content-center align-items-center">
+                            <div class="ccard-payout justify-content-center align-items-center" id="mtp2">
                                 <div class="d-flex justify-content-between w-p100">
-                                    <h3 style="margin-top: 8px">Make Payment Through Transfer</h3>
+                                    <h3 style="margin-top:8px">Make Payment Through Transfer</h3>
                                 </div>
                             </div>
                         </div>

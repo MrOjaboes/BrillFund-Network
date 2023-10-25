@@ -24,11 +24,11 @@
                         </div>
 
                         {{-- DP section --}}
-                        <div class="ccard-dp">
+                        <div class="ccard-dp" id="ccard-dp">
                             @if (Auth::user()->dp == null)
                             <img src="/FrontEnd/rockie/images/logo.svg" class="img-fluid img-thumbnail" width="500" alt="">
                             @else
-                            <img src="{{ asset('/storage/Profiles/DP/'.Auth::user()->dp)}}" width="200" alt="">
+                            <img src="{{ asset('/storage/Profiles/DP/'.Auth::user()->dp)}}" width="500" alt="">
                             @endif
                         </div>
                         <form action="{{ route('freelancing.dp') }}" method="POST" enctype="multipart/form-data" style="margin-top: 3%">
@@ -41,7 +41,7 @@
                                     @enderror
                                 </div>
                                 <div class="col-sm-6">
-                                  <button class="btn" style="background:#FE740E;color:white">Upload</button>
+                                  <button class="btn-custom" style="background:#FE740E;color:white">Upload</button>
                                 </div>
                             </div>
 
@@ -127,7 +127,7 @@
 
                                 </div>
 
-                                <div class="col-6">
+                                <div class="col-md-6">
                                     <button type="submit" class="btn-custom w-p100" style="background: #FE740E;color:white">Update
                                         Details </button>
                                 </div>

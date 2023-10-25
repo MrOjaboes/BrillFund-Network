@@ -27,7 +27,8 @@
                     <div class="col-md-12">
                         <div class="box">
                             <div class="box-body">
-                                <table class="table">
+                                <div class="table-responsive">
+                                <table class="table m-0">
                                     <thead>
                                         <tr>
                                             <th>Name</th>
@@ -47,6 +48,7 @@
                                         @endforeach
                                     </tbody>
                                 </table>
+                            </div>
                             </div>
                         </div>
                     </div>

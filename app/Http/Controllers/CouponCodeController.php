@@ -37,6 +37,11 @@ class CouponCodeController extends Controller
             'amount_paid' => 'required|in:5000,10000,15000,20000,25000',
             'number_of_code' => 'required|in:1,2,3,4,5',
         ]);
+        $number_of_codes = $request->amount_paid / 4700;
+        dd($number_of_codes);
+        if ($request->amount_paid <= 23500) {
+          return redirect()->back()->with('error','Minimum Of Codes required!')
+        }
         if ($request->hasFile('reciept')) {
             $fileName = $request->file('reciept')->getClientOriginalName();
             $request->file('reciept')->storeAs('Coupons/', $fileName, 'public');
@@ -51,8 +56,9 @@ class CouponCodeController extends Controller
                 'code' => auth()->user()->name . '_' . strtoupper(Str::random(10)),
             ]);
         }
+        $number_of_codes = $request->amount_paid / 4700;
         if ($request->amount_paid == 10000) {
-            for ($i = 1; $i <=2; $i++) {
+            for ($i = 1; $i <=$number_of_codes; $i++) {
                 CouponCode::create([
                     'user_id' => auth()->user()->id,
                     'screenshot' => $fileName,
@@ -64,45 +70,45 @@ class CouponCodeController extends Controller
             }
 
         }
-        if ($request->amount_paid == 15000) {
-            for ($i = 1; $i <=3; $i++) {
-                CouponCode::create([
-                    'user_id' => auth()->user()->id,
-                    'screenshot' => $fileName,
-                    'user_name' => auth()->user()->name,
-                    'amount' => $request->amount_paid /3,
-                    'naira_equilvalent' => $request->amount_paid * 820,
-                    'code' => auth()->user()->name . '_' . strtoupper(Str::random(10)),
-                ]);
-            }
+        // if ($request->amount_paid == 15000) {
+        //     for ($i = 1; $i <=3; $i++) {
+        //         CouponCode::create([
+        //             'user_id' => auth()->user()->id,
+        //             'screenshot' => $fileName,
+        //             'user_name' => auth()->user()->name,
+        //             'amount' => $request->amount_paid /3,
+        //             'naira_equilvalent' => $request->amount_paid * 820,
+        //             'code' => auth()->user()->name . '_' . strtoupper(Str::random(10)),
+        //         ]);
+        //     }
 
-        }
-        if ($request->amount_paid == 20000) {
-            for ($i = 1; $i <=4; $i++) {
-                CouponCode::create([
-                    'user_id' => auth()->user()->id,
-                    'screenshot' => $fileName,
-                    'user_name' => auth()->user()->name,
-                    'amount' => $request->amount_paid / 4,
-                    'naira_equilvalent' => $request->amount_paid * 820,
-                    'code' => auth()->user()->name . '_' . strtoupper(Str::random(10)),
-                ]);
-            }
+        // }
+        // if ($request->amount_paid == 20000) {
+        //     for ($i = 1; $i <=4; $i++) {
+        //         CouponCode::create([
+        //             'user_id' => auth()->user()->id,
+        //             'screenshot' => $fileName,
+        //             'user_name' => auth()->user()->name,
+        //             'amount' => $request->amount_paid / 4,
+        //             'naira_equilvalent' => $request->amount_paid * 820,
+        //             'code' => auth()->user()->name . '_' . strtoupper(Str::random(10)),
+        //         ]);
+        //     }
 
-        }
-        if ($request->amount_paid == 25000) {
-            for ($i = 1; $i <=5; $i++) {
-                CouponCode::create([
-                    'user_id' => auth()->user()->id,
-                    'screenshot' => $fileName,
-                    'user_name' => auth()->user()->name,
-                    'amount' => $request->amount_paid /5,
-                    'naira_equilvalent' => $request->amount_paid * 820,
-                    'code' => auth()->user()->name . '_' . strtoupper(Str::random(10)),
-                ]);
-            }
+        // }
+        // if ($request->amount_paid == 25000) {
+        //     for ($i = 1; $i <=5; $i++) {
+        //         CouponCode::create([
+        //             'user_id' => auth()->user()->id,
+        //             'screenshot' => $fileName,
+        //             'user_name' => auth()->user()->name,
+        //             'amount' => $request->amount_paid /5,
+        //             'naira_equilvalent' => $request->amount_paid * 820,
+        //             'code' => auth()->user()->name . '_' . strtoupper(Str::random(10)),
+        //         ]);
+        //     }
 
-        }
+        // }
         return redirect()->back()->with('message', 'Code Generated Successfully!');
     }
 }

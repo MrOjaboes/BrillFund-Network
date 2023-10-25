@@ -16,8 +16,8 @@
                 <div class="row">
                     <div class="col-md-1">
                     </div>
-                    <div class="col-md-6 col-12">
-                        <img src="/FrontEnd/rockie/images/logo.svg" width="200" alt="">
+                    <div class="col-md-5">
+                        <img src="/FrontEnd/rockie/images/logo.svg" id="payout-img" width="200" alt="">
                     </div>
                     <div class="col-md-3">
                         <div class="d-flex justify-content-center">
@@ -49,7 +49,7 @@
                                     aria-label="close">&times;</a>
                                 {{ session('message') }}
                             </div>
-                         
+
                     @endif
                     @if (session()->has('error'))
                         <div style="background:rgb(238, 46, 46);color:white;" class="alert">
@@ -109,7 +109,7 @@
 
                          <div style="margin-bottom: 5%"></div>
                     <div class="col-6">
-                        <button type="submit" class="btn-custom w-p100" style="background: #FE740E;color:white">Place
+                        <button type="submit" class="btn w-p100" style="background: #FE740E;color:white">Place
                             Withdrawal </button>
                     </div>
                </form>
@@ -122,4 +122,5 @@
     @include('layouts.Partials.bottombar')
 
     </div>
+      
 @endsection

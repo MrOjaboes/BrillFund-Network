@@ -86,8 +86,8 @@
                 <!-- /.content -->
                 <div class="row pt-5">
                     <div class="col-md-3"> </div>
-                    <div class="col-md-6" style="padding:30px;border-radius:1.5rem;background: linear-gradient(#D0D0D0A6 100%,#B5B5B500 0%)">
-                        <div class="row pt-3">
+                    <div class="col-md-6" id="hdetails" style="padding:30px;border-radius:1.5rem;background: linear-gradient(#D0D0D0A6 100%,#B5B5B500 0%)">
+                        <div class="row pt-3" id="hdetails1">
                             <div class="col-md-6">
                                 <h4 class="heading">Affiliate Balance</h4>
                                 <h4 class="text-justify" style="color: #FE740E">{{ $affiliate_balance->total }}</h4>
@@ -97,7 +97,7 @@
                                  <h4 class="text-justify" style="color: #FE740E">{{ $activity_balance.'BP' }}</h4>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row" id="hdetails2">
                             <div class="col-md-6">
                                 <h4 class="heading">Direct Earnings</h4>
                                 <h4 class="text-justify" style="color: #FE740E">{{ $direct_balance }}</h4>
@@ -107,7 +107,7 @@
                                 <h4 class="text-justify" style="color: #FE740E">{{ $indirect_balance }}</h4>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row" id="hdetails3">
                             <div class="col-md-6">
                                 <h4 class="heading">Payouts</h4>
                                 <h4 class="text-justify" style="color: #FE740E">{{ $withdrawal }}</h4>
@@ -124,30 +124,36 @@
                 <div class="row">
                     <div class="col-md-12 position-relative">
                         <div class="box pt-3">
-                            <div class="box-body">
-                                <div class="table-responsive">
-                                    <div class="col-xl-12 my-20" style="height:200px;overflow-y:scroll;">
-                                        <div class="d-flex justify-content-between flex-column align-items-start">
-                                            <div class="d-flex justify-content-between align-items-end w-p100 mb-10">
-                                                <span class="fw-bolder text-dark fs-18">Recent Downlines</span>
-                                            </div>
 
-                                            <ul class="custom-list">
-                                            @foreach ($activities as $activity)
-                                            <li class="d-flex justify-content-between align-items-start">
-                                                <i data-feather="plus" class="text-success"></i>
-                                                <span class="text-start">{{ $activity->balance }}</span>
-                                                <span class="text-start">{{ $activity->description }}</span>
-                                                <span class="text-primary">{{ \Carbon\Carbon::parse($activity->created_at)->format('d D, M Y') }}
-                                                    - {{ \Carbon\Carbon::parse($activity->created_at)->format('H:i') }}</span>
-                                            </li>
+                                      <div class="box-body">
+                                        <div class="box-heading">
+                                            <h3 class="text-justify">Recent Downlines</h3>
+                                        </div>
+                                <div class="table-responsive" style="height: 200px;overflow-y:scroll;overflow-x:scroll">
+                                    <table class="table table-sm invoice-archive table-striped mb-0"
+                                        style="min-width: 550px;">
+                                        <thead>
+                                            <tr>
+                                                <th>Direct</th>
+                                                <th>Indirect</th>
+                                                <th>Date</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($activities as $data)
+                                                <tr>
+                                                    <td> {{ $data->direct_balance }}</td>
+                                                    <td> {{ $data->indirect_balance }}</td>
+
+                                                    <td> {{ \Carbon\Carbon::parse($data->created_at)->format('d D, M Y') }}
+                                                    </td>
+
+                                                </tr>
                                             @endforeach
 
-                                            </ul>
-                                        </div>
-                                    </div>
+                                        </tbody>
+                                    </table>
                                 </div>
-
                             </div>
 
                         </div>

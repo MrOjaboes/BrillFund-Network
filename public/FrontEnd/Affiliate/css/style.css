@@ -150,7 +150,7 @@ body {
     font-size: 1rem;
     font-style: normal;
     font-weight: 400;
-    font-family: "Poppins", sans-serif;
+    font-family: "Poppins";
     line-height: 1.5;
     background-color: #E4EBF5;
 }
@@ -180,7 +180,7 @@ h6,
 .h4,
 .h5,
 .h6 {
-    font-family: "Rubik", sans-serif;
+    font-family: "Poppins";
     font-weight: 400;
     line-height: 1.2;
 }
@@ -262,11 +262,11 @@ img {
 }
 
 .base-font {
-    font-family: "Poppins", sans-serif !important;
+    font-family: "Poppins";
 }
 
 .heading-font {
-    font-family: "Rubik", sans-serif !important;
+    font-family: "Poppins";
 }
 
 .fs-0 {
@@ -1471,7 +1471,59 @@ code {
 .l-0 {
     left: 0;
 }
-
+#codes{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+@media only screen and (max-width: 600px) and (min-width: 360px) {
+#codes{
+    display: flex;
+    justify-content: space-around;
+}
+.fixed .content-wrapper{
+    min-height: 0;
+}
+#hdetails{
+    display: flex;
+}
+#hdetails2{
+    margin: 0;
+}
+#hdetails .row h4{
+    font-size: 12px;
+}
+#hdetails1{
+   flex-direction: row;
+   margin-top: -11px;
+}
+#p2p .mg-left{
+    margin-left: 0px;
+}
+#gc .mg-left{
+    margin-left: 0px;
+}
+#ccard-dp{
+    padding: 15px;
+    width: 317px;
+    height: 201px;
+}
+#mtp1,#mtp2{
+    height: 80px;
+}
+#mtp1 h3{
+    font-size: 18px;
+}
+#mtp2 h3{
+    font-size: 15px;
+}
+.mp{
+    text-align: justify;
+}
+    h1,h3{
+        font-size: 23px;
+    }
+}
 .bg-none {
     background: none !important;
 }
@@ -29624,9 +29676,11 @@ body .main-header .navbar .nav>li.search-box>a:focus {
         position: fixed;
         width: 19.29rem;
         padding-bottom: 0;
-        height: calc(100% - 145px);
+        height: calc(100% - 225px);
     }
 }
+
+
 
 #chat-box-body {
     z-index: 9998;
@@ -40179,7 +40233,9 @@ ul.flexbox {
     height: 60px;
     border-top: 2px solid red;
 }
-
+.mg-left{
+    margin-left: -51px;
+}
 .ccard {
     display: flex;
     flex-direction: column;
@@ -40258,7 +40314,7 @@ ul.flexbox {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 20px 30px;
+    padding: 40px 40px;
     gap: 15px;
     position: relative;
     width: 500px;

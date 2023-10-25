@@ -35,9 +35,9 @@ class GuestController extends Controller
     }
     public function topEarners()
     {
-        //$secretary = DB::table('affiliate_balances')->orderBy('created_at','DESC')->distinct()->select('user_id')->get();
-
-       $earners = Network::with('user')->orderBy('created_at','DESC')->latest()->take(15)->get();
+       $earners = User::with('affiliateBalance')->where('user_type',0)->get();
+ 
+      // $earners = Network::with('user')->orderBy('created_at','DESC')->latest()->take(15)->get();
         return view('top-earners',compact('earners'));
     }
     public function contactUs()
