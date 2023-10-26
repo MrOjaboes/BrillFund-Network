@@ -20,4 +20,9 @@ class CouponCode extends Model
          'naira_equilvalent',
          'user_id',
     ];
+
+    public function user()
+    {
+       return $this->belongsTo(User::class,'user_id');
+    }
 }

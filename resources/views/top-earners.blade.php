@@ -25,7 +25,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <h3 class="heading">Top Earners</h3>
+                    <h3 class="heading cph">Top Earners</h3>
                 </div>
                 <div class="col-md-6">
                     <ul class="breadcrumb">
@@ -54,10 +54,10 @@
                                         src="/FrontEnd/rockie/images/logo.svg"alt="">
                                     <div class="d-flex flex-grow-1 justify-content-between align-items-center ms-3">
                                         <div class="">
-                                            <div class="list-title text-dark fw-bold fs-3">{{ $earner->name }}</div>
+                                            <div class="list-title text-dark fw-bold fs-3">{{ $earner->user->name }}</div>
                                             <div class="list-desc text-white fs-4">
-												@if ($earner->affiliateBalance->total != null && $earner->affiliateBalance->total != 0)
-                                                {{'$'. $earner->affiliateBalance->total}}
+												@if ($earner->total !== null && $earner->total !== 0)
+                                                {{'$'. $earner->total}}
                                                 @endif
 											</div>
                                         </div>

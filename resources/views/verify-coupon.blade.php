@@ -7,7 +7,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <h3 class="heading">Verify Coupon Code</h3>
+                    <h3 class="heading cph">Verify Coupon Code</h3>
                 </div>
                 <div class="col-md-6">
                     <ul class="breadcrumb">
@@ -31,7 +31,7 @@
                 <div class="col-xl-6 col-md-12 mx-auto">
                     <div class="contact-main">
                         <div class="block-text center">
-                            <h3 class="heading">Check Your Code</h3>
+                            <h3 class="heading cph">Check Your Code</h3>
                             <p class="desc fs-20">Paste In Your Code to Confirm Your Code Status</p>
                         </div>
 

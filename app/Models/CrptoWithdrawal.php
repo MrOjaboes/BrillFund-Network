@@ -5,21 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Profile extends Model
+class CrptoWithdrawal extends Model
 {
+    use HasFactory;
     protected $fillable = [
-        'user_id',
+        'amount',
+        'bank',
         'acct_number',
         'acct_name',
-        'bank',
-
-
+        'status',
     ];
 
-
-    public function user()
-    {
-        return $this->belongsTo(User::class,'user_id');
-        # code...
-    }
 }

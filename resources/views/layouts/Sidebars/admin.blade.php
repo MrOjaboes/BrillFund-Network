@@ -60,12 +60,30 @@
                 <p>Messages <span class="badge badge-danger">{{ $tickets }}</span></p>
               </a>
             </li>
-            {{-- <li class="nav-item">
-              <a href="{{ route('admin.quiz') }}" class="nav-link {{ request()->is('admin/quiz') ? 'active' : '' || request()->is('admin/quiz/new')}}">
-                <i class="fas fa-book nav-icon"></i>
-                <p>Quiz</p>
-              </a>
-            </li> --}}
+            <li class="nav-item">
+                <a href="#" class="nav-link {{ request()->is('admin/crypto-market-place') ? 'active' : '' || request()->is('admin/cryptoWithdrawal')}}">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>
+                        Crpto Martket
+                        <i class="right fas fa-angle-left"></i>
+                    </p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="{{ route('admin.crypto') }}" class="nav-link">
+                            <i class="fas fa-circle nav-icon"></i>
+                            <p>Market Place</p>
+                        </a>
+                        </li>
+                    <li class="nav-item">
+                        <a href="{{ route('admin.cryptoWithdrawal') }}" class="nav-link">
+                            <i class="fas fa-circle nav-icon"></i>
+                            <p>Withdrawals</p>
+                        </a>
+                        </li>
+                </ul>
+            </li>
+
             <li class="nav-item">
               <a href="{{ route('admin.deposits') }}" class="nav-link {{ request()->is('admin/deposits') ? 'active' : '' }}">
                 <i class="fa fa-dollar-sign nav-icon"></i>

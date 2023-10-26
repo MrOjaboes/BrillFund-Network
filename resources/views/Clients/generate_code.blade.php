@@ -37,6 +37,8 @@
                         </div>
                     </div>
                 </div>
+                <small style="color: #d21818">Minimum Number Of Codes Allowed 5(five) Codes</small> <br>
+                <small style="color: #d21818">Minimum Amount Required for Code Generation Is N23,500 For 5(five) Codes</small>
                 <div style="margin-bottom: 3%"></div>
                 <div class="row">
                     @if (session()->has('message'))
@@ -62,6 +64,7 @@
                 {{-- Form Section --}}
                 <div class="row">
                     <div class="col-md-12">
+
                         <form class="form-horizontal form-element" action="{{ route('home.generate-code.send') }}" enctype="multipart/form-data" method="post">
                             @csrf
                             {{-- <div class="form-group row">
@@ -91,7 +94,7 @@
                                         <option value="20000">20000</option>
                                         <option value="25000">25000</option>
                                     </select> --}}
-                                    <input type="number" class="form-control" name="amount_paid" placeholder="Amount">
+                                    <input type="number" class="form-control" name="amount_paid" placeholder="Amount(One code costs N4700)">
                                     @error('amount_paid')
                                         <span style="color:red" role="alert">
                                             <strong>{{ $message }}</strong>

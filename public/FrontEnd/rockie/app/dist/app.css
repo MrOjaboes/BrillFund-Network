@@ -8245,7 +8245,9 @@ body[data-magic-cursor="hide"] .mouse-cursor {
         flex-direction: column;
         justify-content: space-evenly;
     }
-
+.cph{
+    font-size: 25px;
+}
     .banner .banner__image {
         background-size: 100%;
         background-origin: padding-box;

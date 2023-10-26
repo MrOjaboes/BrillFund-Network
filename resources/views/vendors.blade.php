@@ -44,7 +44,7 @@
             <div class="col-lg-12 pl-70 md-pl-0">
                 <div class="content-wrap">
                     <div class="sec-title mb-35">
-                        <h5>
+                        <h5 class="cph">
                             Message Any Vendor To Get Your Code
                         </h5>
                         <div class="row gy-4">
@@ -57,8 +57,7 @@
                                     <div class="">
                                         <div class="list-title text-dark  fw-bold fs-3">{{ Str::upper($vendor->name) }}</div>
                                         <div class="list-desc text-primary fs-6">
-                                            {{-- <i class="ri-bank-fill"></i>
-                                            {{ $vendor->bank }} --}}
+                                            {{ $vendor->coupons()->where('status',1)->count() }}
                                         </div>
                                     </div>
                                     <div>

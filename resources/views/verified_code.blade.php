@@ -7,7 +7,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <h3 class="heading">Verified Coupon Code</h3>
+                    <h3 class="heading cph">Verified Coupon Code</h3>
                 </div>
                 <div class="col-md-6">
                     <ul class="breadcrumb">
@@ -39,7 +39,7 @@
                                     <div class="col-12">
                                         <div class="card">
                                             <div class="card-body">
-                                                <h5><i>{{ $check->code }}</i></h5> 
+                                                <h5><i>{{ $check->code }}</i></h5>
                                                 <p>Used By :: {{ $check->used_by }}</p>
                                                 <p>Reffered By ::{{ $check->reffered_by }}</p>
                                             </div>
@@ -47,7 +47,7 @@
                                     </div>
                                    </div>
                                 @endif
-                                
+
                                 @if ($check->status == 0)
                                 <button type="submit" style="height: 50px;width:200px;" class="btn btn-danger">Not Activated</button>
                                 @endif

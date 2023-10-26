@@ -58,6 +58,10 @@ class User extends Authenticatable
     {
        return $this->hasOne(Profile::class,'user_id');
     }
+    public function coupons()
+    {
+       return $this->hasMany(CouponCode::class,'user_id');
+    }
     public function affiliateBalance()
     {
        return $this->hasOne(AffiliateBalance::class,'user_id');

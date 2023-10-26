@@ -47,6 +47,14 @@ class HomeController extends Controller
     {
         return view('Admin.coupons');
     }
+    public function market_place()
+    {
+        return view('Admin.market-place');
+    }
+    public function market_place_withdrawal()
+    {
+        return view('Admin.market-place-withdrawal');
+    }
     public function coupon_details(CouponCode $coupon)
     {
         return view('Admin.coupon-details',compact('coupon'));

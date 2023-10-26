@@ -11,12 +11,13 @@
     {{-- <a class="sc-menu-item" href="https://www.learnify.ng/logout">
         <i data-feather="log-out"></i>
     </a> --}}
-    <a id="logout" href="{{ route('logout') }}" class="sc-menu-item" onclick="event.preventDefault();
+    <a id="logout" href="{{ route('logout') }}" class="sc-menu-item"
+        onclick="event.preventDefault();
     document.getElementById('logout-form').submit();">
-              <i data-feather="log-out"></i>
-            </a>
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                @csrf
-            </form>
-            </a>
+        <i data-feather="log-out"></i>
+    </a>
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        @csrf
+    </form>
+    </a>
 </div>

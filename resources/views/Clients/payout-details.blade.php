@@ -46,7 +46,34 @@
                     @csrf
                     <div class="form-group row">
                         <div class="col-sm-12">
-                            <input type="text" class="form-control" value="{{ Auth::user()->profile->bank }}" name="bank" placeholder="Bank Name">
+                            <select id="bank" class="form-control select2 rounded-3" style="width: 100%" name="bank">
+                                <option value="{{ Auth::user()->profile->bank }}">{{ Auth::user()->profile->bank }} </option>
+                                <option value="Access">Access</option>
+                                <option value="Ecobank">Ecobank</option>
+                                <option value="fcmb">fcmb</option>
+                                <option value="Fidelitybank">Fidelitybank</option>
+                                <option value="Firstbank">Firstbank</option>
+                                <option value="gtb">gtb</option>
+                                <option value="Jaiz">Jaiz</option>
+                                <option value="Keystone">Keystone</option>
+                                <option value="Kuda">Kuda</option>
+                                <option value="momo">momo</option>
+                                <option value="paycom">paycom</option>
+                                <option value="skyebank">skyebank</option>
+                                <option value="Stanbic">Stanbic</option>
+                                <option value="Standard Chartered Bank">
+                                  Standard Chartered Bank
+                                </option>
+                                <option value="Sterling">Sterling</option>
+                                <option value="Suntrust">Suntrust</option>
+                                <option value="uba">uba</option>
+                                <option value="Unionbank">Unionbank</option>
+                                <option value="unity">unity</option>
+                                <option value="VFD">VFD</option>
+                                <option value="Wema">Wema</option>
+                                <option value="Zenith">Zenith</option>
+                              </select>
+                            
                         </div>
                     </div>
                     <div class="form-group row">

@@ -35,9 +35,8 @@ class GuestController extends Controller
     }
     public function topEarners()
     {
-       $earners = User::with('affiliateBalance')->where('user_type',0)->get();
- 
-      // $earners = Network::with('user')->orderBy('created_at','DESC')->latest()->take(15)->get();
+          $earners = AffiliateBalance::with('user')->select('total','user_id')->distinct()->orderBy('total','desc')->take(10)->get();
+
         return view('top-earners',compact('earners'));
     }
     public function contactUs()
@@ -81,8 +80,8 @@ class GuestController extends Controller
     }
     public function vendors()
     {
-      //  $vendors = Vendors::orderBy('created_at','DESC')->get();
-       $vendors = User::where('user_type',2)->orderBy('created_at','DESC')->get();
+
+       $vendors = User::with('coupons')->where('user_type',2)->orderBy('created_at','DESC')->get();
         return view('vendors',compact('vendors'));
     }
 }

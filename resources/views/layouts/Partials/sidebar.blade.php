@@ -56,7 +56,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('home.codes') }}">
+                        <a href="{{ route('home.Crpto') }}">
                             <img src="/FrontEnd/rockie/images/crypto_market.svg" class=""alt=""></i>
                             <span>Crypto Marketplace</span>
                         </a>

@@ -12,12 +12,12 @@ class DailyPostPage extends Component
     use WithPagination;
     use WithFileUploads;
     protected $paginationTheme = 'bootstrap';
-    public $title,$content,$link,$photo;
+    public $title, $content, $link, $photo;
 
     public function render()
     {
-        $dailyPost = DailyPost::orderBy('created_at','DESC')->latest()->paginate(10);
-        return view('livewire.admin.daily-post-page',compact('dailyPost'));
+        $dailyPost = DailyPost::orderBy('created_at', 'DESC')->latest()->paginate(10);
+        return view('livewire.admin.daily-post-page', compact('dailyPost'));
     }
 
     public function store()
@@ -28,13 +28,13 @@ class DailyPostPage extends Component
             'link' => 'required|url',
             'photo' => 'required|mimes:png,jpg,jpeg|max:1024',
         ]);
-   // Original File name
-   $original_filename = $this->photo->getClientOriginalName();
-   // Upload file
-   $filename = $this->photo->storeAs('Posts',$original_filename,'public');
+        // Original File name
+        $original_filename = $this->photo->getClientOriginalName();
+        // Upload file
+        $filename = $this->photo->storeAs('Posts', $original_filename, 'public');
 
-   // Check file extension is an image type
-   //$extension = strtolower($this->file->extension());
+        // Check file extension is an image type
+        //$extension = strtolower($this->file->extension());
 
         DailyPost::create([
             'title' => $validated['title'],
@@ -71,12 +71,11 @@ class DailyPostPage extends Component
             'link' => '',
 
         ]);
-if ($this->photo) {
-    $original_filename = $this->photo->getClientOriginalName();
-    // Upload file
-    $filename = $this->photo->storeAs('Posts',$original_filename,'public');
-
-}
+        if ($this->photo) {
+            $original_filename = $this->photo->getClientOriginalName();
+            // Upload file
+            $filename = $this->photo->storeAs('Posts', $original_filename, 'public');
+        }
         if ($this->location_id) {
 
             $item = DailyPost::find($this->location_id);
@@ -105,6 +104,5 @@ if ($this->photo) {
         $this->content = '';
         $this->link = '';
         $this->photo = '';
-
     }
 }

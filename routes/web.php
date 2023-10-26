@@ -33,8 +33,14 @@ Route::group(['middleware' => 'isAdmin', 'prefix' => 'admin'], function () {
     Route::get('/', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('admin');
     Route::get('/users', [App\Http\Controllers\Admin\HomeController::class, 'getusers'])->name('admin.users');
     Route::get('/user/{user}/details', [App\Http\Controllers\Admin\HomeController::class, 'userDetails'])->name('admin.usersDetails');
-//Coupon Section
+    //Coupon Section
     Route::get('/coupons', [App\Http\Controllers\Admin\HomeController::class, 'coupons'])->name('admin.coupons');
+
+    //Crpto Market section
+    Route::get('/crypto-market-place', [App\Http\Controllers\Admin\HomeController::class, 'market_place'])->name('admin.crypto');
+    Route::get('/cryptoWithdrawal', [App\Http\Controllers\Admin\HomeController::class, 'market_place_withdrawal'])->name('admin.cryptoWithdrawal');
+
+
     Route::get('/coupon/{coupon}/details', [App\Http\Controllers\Admin\HomeController::class, 'coupon_details'])->name('admin.coupon-details');
     Route::get('/withdrawals', [App\Http\Controllers\Admin\WithdrawalController::class, 'index'])->name('admin.withdrawals');
     Route::get('/withdrawals/{withdrawal}/details', [App\Http\Controllers\Admin\WithdrawalController::class, 'withdrawalDetails'])->name('admin.withdrawalDetails');
@@ -106,8 +112,13 @@ Route::post('/token-inquiry', [App\Http\Controllers\TokenController::class, 'sto
 Route::get('/freelancing', [App\Http\Controllers\FreelancingController::class, 'index'])->name('home.freelancing');
 Route::post('/freelancing', [App\Http\Controllers\FreelancingController::class, 'store'])->name('freelancing.store');
 Route::post('/freelancing/dp', [App\Http\Controllers\FreelancingController::class, 'updateDp'])->name('freelancing.dp');
-//Profile Mgt
 
+//Crpto market Section
+Route::get('/market-place', [App\Http\Controllers\CrptoMarketController::class, 'index'])->name('home.Crpto');
+Route::get('/market-place/{crpto:name}', [App\Http\Controllers\CrptoMarketController::class, 'details'])->name('home.Crpto.details');
+Route::post('/market-place', [App\Http\Controllers\CrptoMarketController::class, 'store'])->name('home.Crpto.store');
+
+//Payout Section
 Route::get('/payout-details', [App\Http\Controllers\PayoutController::class, 'index'])->name('payout-details');
 Route::post('/payout-details', [App\Http\Controllers\PayoutController::class, 'update'])->name('payout.update');
 
