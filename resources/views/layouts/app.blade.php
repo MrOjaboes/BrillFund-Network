@@ -21,8 +21,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="shortcut icon" href="/FrontEnd/rockie/images/logo.svg" />
     <link rel="apple-touch-icon-precomposed" href="/FrontEnd/rockie/images/logo.svg" />
-    <script type='text/javascript' src='../pl18200534.highrevenuegate.com/4f/07/82/4f07828118d9983f02124708f3c89d02.js'>
-    </script>
+
 
     @livewireStyles
 
@@ -58,15 +57,24 @@
                                             <a href="#">Other Info</a>
 
                                             <ul class="sub-menu">
-                                                <li class="menu-item">
-                                                    <a href="{{ route('activation.code') }}">Purchase Coupon Code</a>
+                                                 <li class="menu-item">
+                                                    <a href="{{ route('activation.code') }}">Vendor Leaderboard</a>
                                                 </li>
+                                                <li class="menu-item">
+                                                    <a href="{{ route('topEarners') }}">Affiliate Leaderboard</a>
+                                                </li>
+                                                <li class="menu-item">
+                                                    <a href="{{ route('topEarners') }}">Crypto Marketplace</a>
+                                                </li>
+                                                   <li class="menu-item">
+                                            <a href="{{ route('adverts') }}">Posts</a>
+                                        </li>
                                                 <li class="menu-item">
                                                     <a href="{{ route('coupon.verify') }}">Verify Coupon Code</a>
                                                 </li>
-                                                <li class="menu-item">
-                                                    <a href="{{ route('adverts') }}">Posts</a>
-                                                </li>
+                                                {{-- <li class="menu-item">
+                                                    <a href="{{ route('howitworks') }}">How it Works</a>
+                                                </li> --}}
                                                 <li class="menu-item">
                                                     <a href="{{ route('topEarners') }}">Top Earners</a>
                                                 </li>
@@ -77,7 +85,6 @@
                                         <li class="menu-item">
                                             <a href="{{ route('contactUs') }}">Contact Us</a>
                                         </li>
-
                                         <li class="menu-item-has-children">
                                             <a href="#"> Pages </a>
                                             <ul class="sub-menu">
@@ -90,13 +97,12 @@
                                                 </li>
                                             </ul>
                                         </li>
-                                        <li class="menu-item" id="m-login">
-                                            <a href="{{ route('login') }}" class="btn" style="border:none;width:110px;background:#FE740E;color:white">Sign In</a>
+                                     <li class="menu-item" id="m-login">
+                                            <a href="{{ route('login') }}" class="btn" style="border:none;width:113px;background:#FE740E;color:white">Sign In</a>
                                         </li>
                                         <li class="menu-item" id="m-register">
-                                            <a href="{{ route('register') }}" class="btn" style="border:none;width:116px;background:#FE740E;color:white">Sign Up</a>
+                                            <a href="{{ route('register') }}" class="btn" style="border:none;width:121px;background:#FE740E;color:white">Sign Up</a>
                                         </li>
-
                                     </ul>
                                 </nav>
                                 <!-- /#main-nav -->
@@ -184,15 +190,15 @@
                                     Join the Fastest growing innovation platform now and make money from
                                     the comfort of your home
                                 </p>
-                                <a href="" class="btn" style="background: #fe740e; color: white">Know
+                                <a href="" class="btn" style="background: #fe740e; color:white">Know
                                     more/Default</a>
                             </div>
                             <div class="widget-link s2" id="s1" style="color: #000000">
                                 <h6 class="title" style="color: #000000">RESOURCES</h6>
                                 <ul>
                                     <li><a href="{{ route('adverts') }}">About</a></li>
-                                    <li><a href="{{ route('topEarners') }}">T’s and C’s</a></li>
-                                    <li><a href="{{ route('activation.code') }}">Contact</a></li>
+                                    <li><a href="{{ route('terms') }}">T’s and C’s</a></li>
+                                    <li><a href="{{ route('contactUs') }}">Contact</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -202,9 +208,10 @@
                             <div class="widget-link s2" id="s2" style="color: #000000">
                                 <h6 class="title" style="color: #000000">Special Features</h6>
                                 <ul>
-                                    <li><a href="{{ route('adverts') }}">VTU Platform</a></li>
-                                    <li><a href="{{ route('topEarners') }}">Casino Platfor</a></li>
-                                    <li><a href="{{ route('activation.code') }}">Token Info</a></li>
+                                    <li><a href="">Casino Games</a></li>
+                                    <li><a href="">Brill Voucher (urgent 1k)</a></li>
+                                    <li><a href="">Brill VTU</a></li>
+                                    <li><a href="">Brill Token</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -218,17 +225,18 @@
                             <div class="widget-link">
                                 <h6 class="title" style="color: #000000">RESOURCES</h6>
                                 <ul>
-                                    <li><a href="{{ route('adverts') }}">About</a></li>
-                                    <li><a href="{{ route('topEarners') }}">T’s and C’s</a></li>
-                                    <li><a href="{{ route('activation.code') }}">Contact</a></li>
+                                    <li><a href="">About</a></li>
+                                    <li><a href="{{ route('terms') }}">T’s and C’s</a></li>
+                                    <li><a href="{{ route('contactUs') }}">Contact</a></li>
                                 </ul>
                             </div>
                             <div class="widget-link s2">
                                 <h6 class="title" style="color: #000000">Special Features</h6>
                                 <ul>
-                                    <li><a href="{{ route('adverts') }}">VTU Platform</a></li>
-                                    <li><a href="{{ route('topEarners') }}">Casino Platform</a></li>
-                                    <li><a href="{{ route('activation.code') }}">Token Info</a></li>
+                                    <li><a href="">Casino Games</a></li>
+                                    <li><a href="">Brill Voucher (urgent 1k)</a></li>
+                                    <li><a href="">Brill VTU</a></li>
+                                    <li><a href="">Brill Token</a></li>
                                 </ul>
                             </div>
                         </div>

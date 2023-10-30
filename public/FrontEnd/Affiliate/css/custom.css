@@ -231,7 +231,7 @@
   }
 
   .sc-menu-item {
-    color: var(--fore-color);
+    color: #FE740E;
     transition: ease-in-out 0.5s;
     cursor: pointer;
   }

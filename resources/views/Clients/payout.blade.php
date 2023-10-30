@@ -14,8 +14,7 @@
             <div class="container">
                 <!-- Main content -->
                 <div class="row">
-                    <div class="col-md-1">
-                    </div>
+
                     <div class="col-md-5">
                         <img src="/FrontEnd/rockie/images/logo.svg" id="payout-img" width="200" alt="">
                     </div>
@@ -38,8 +37,10 @@
                     </div>
                     <div class="col-md-2"></div>
                 </div>
+                <p id="linep"></p>
                 <div style="margin-bottom: 5%"></div>
-                <h3>Withdraw Funds</h3>
+                <h3><b>Withdraw Funds</b></h3>
+
                 <div class="row">
                     <div class="col-md-6"></div>
                     <div class="col-md-6">
@@ -63,7 +64,7 @@
                 </div>
                 <form class="form-horizontal form-element" action="{{ route('home.payout.request') }}" method="post">
                     @csrf
-                    <div class="form-group row">
+                    {{-- <div class="form-group row">
                         <div class="col-sm-6">
                                   <select class="form-control" name="withdrawal_type" required>
                                     <option value="1">Affiliate</option>
@@ -73,7 +74,7 @@
                                   <span style="color: red">{{ $message }}</span>
                                 @enderror
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="form-group row">
                         <div class="col-sm-6">
                             <input type="number" class="form-control" name="amount" placeholder="Amount" required>
@@ -122,5 +123,5 @@
     @include('layouts.Partials.bottombar')
 
     </div>
-      
+
 @endsection

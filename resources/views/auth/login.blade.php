@@ -20,17 +20,18 @@
     <link rel="stylesheet" href="/FrontEnd/AuthUi/Login/css/style.css">
     <style>
      .form-control {
-            border-bottom: 1px solid #000000;
+            border-bottom: 2px solid #000000;
             border-top: none;
             border-left: none;
             border-right: none;
             border-radius: 0px;
-            display: block;
+            border:none;
             width: 100%;
             height: 45px;
             background: none;
             padding: 0 19px;
             color: #000;
+            box-shadow: none;
             font-size: 17px;
     }
     button {

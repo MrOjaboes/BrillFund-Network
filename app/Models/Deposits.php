@@ -10,7 +10,6 @@ class Deposits extends Model
     use HasFactory;
     protected $fillable = [
         'balance',//not
-        'naira_equilvalent',
         'description',
         'user_id',
     ];

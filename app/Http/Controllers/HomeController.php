@@ -14,6 +14,7 @@ use App\Models\DirectBalance;
 use App\Models\ActivityBalance;
 use App\Models\IndirectBalance;
 use App\Models\AffiliateBalance;
+use App\Models\AffiliateHistory;
 use App\Models\CouponCode;
 use App\Models\Indirect2Balance;
 use App\Models\WithDrawalBan;
@@ -45,7 +46,8 @@ class HomeController extends Controller
         $indirect2_balance = AffiliateBalance::where('user_id', auth()->user()->id)->sum('indirect2_balance');
         $affiliate_balance = AffiliateBalance::where('user_id', auth()->user()->id)->first();
         $networks = Network::with('user')->where('parent_user_id', auth()->user()->id)->get();
-        $activities = AffiliateBalance::where('user_id', auth()->user()->id)->orderBy('created_at', 'DESC')->get();
+        $activities = AffiliateHistory::where('user_id', auth()->user()->id)->orderBy('created_at', 'DESC')->get();
+
         return view('Clients.home', compact('users', 'activities', 'withdrawal', 'affiliate_balance', 'activity_balance', 'networks', 'direct_balance', 'indirect_balance', 'indirect2_balance'));
     }
 
@@ -53,7 +55,7 @@ class HomeController extends Controller
 
     public function refferals()
     {
-        $refferals = Network::with('user')->where('parent_user_id',auth()->user()->id)->get();
+        $refferals = Network::with('user')->where('parent_user_id', auth()->user()->id)->get();
         return view('Clients.referrals', compact('refferals'));
     }
 
@@ -93,7 +95,7 @@ class HomeController extends Controller
         }
         return redirect()->back()->with('message', 'Post Claimed Successfully!');
     }
-//Payout Section
+    //Payout Section
     public function payout()
     {
         $activity_balance = ActivityBalance::where('user_id', auth()->user()->id)->sum('balance');
@@ -111,10 +113,10 @@ class HomeController extends Controller
     {
         $request->validate([
             'amount' => 'required',
-            'withdrawal_type' => 'required|in:1,2',
+            'withdrawal_type' => '',
         ]);
         $affiliate_balance = AffiliateBalance::where('user_id', auth()->user()->id)->first();
-       // dd($affiliate_balance->total);
+        // dd($affiliate_balance->total);
         $activity_balance = ActivityBalance::where('user_id', auth()->user()->id)->sum('balance');
         $ban = WithDrawalBan::where('status', 0)->first();
         $act_ban = WithDrawalBan::where('task_status', 0)->first();
@@ -122,31 +124,30 @@ class HomeController extends Controller
             return redirect()->back()->with('error', 'Withdrawal Status is Currently In-Active!');
         }
 
-        if ($request->withdrawal_type == 1) {
-            if ($request->amount > $affiliate_balance->total) {
-                return redirect()->back()->with('error', 'Indufficient Fund in your Affiliate balance!');
-            }
-            Withdrawals::create([
-                'user_id' => auth()->user()->id,
-                'name' => auth()->user()->name,
-                'amount' => $request->amount,
-                'note' => ' Affiliate Withdrawal',
-            ]);
+        //if ($request->withdrawal_type == 1) {
+        if ($request->amount > $affiliate_balance->total) {
+            return redirect()->back()->with('error', 'Indufficient Fund in your Affiliate balance!');
         }
-        if ($request->withdrawal_type == 2) {
-            if ($request->amount > $activity_balance) {
-                return redirect()->back()->with('error', 'Indufficient Fund in your Activity balance!');
-            }
-            Withdrawals::create([
-                'user_id' => auth()->user()->id,
-                'name' => auth()->user()->name,
-                'amount' => $request->amount,
-                'note' => 'Activity Withdrawal',
-            ]);
-        }
+        Withdrawals::create([
+            'user_id' => auth()->user()->id,
+            'name' => auth()->user()->name,
+            'amount' => $request->amount,
+            'note' => ' Affiliate Withdrawal',
+        ]);
+        // }
+        // if ($request->withdrawal_type == 2) {
+        //     if ($request->amount > $activity_balance) {
+        //         return redirect()->back()->with('error', 'Indufficient Fund in your Activity balance!');
+        //     }
+        //     Withdrawals::create([
+        //         'user_id' => auth()->user()->id,
+        //         'name' => auth()->user()->name,
+        //         'amount' => $request->amount,
+        //         'note' => 'Activity Withdrawal',
+        //     ]);
+        // }
 
 
-            return redirect()->back()->with('message', 'Request Submitted Successfully!');
-        }
-
+        return redirect()->back()->with('message', 'Request Submitted Successfully!');
+    }
 }

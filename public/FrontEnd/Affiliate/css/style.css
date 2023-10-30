@@ -133,7 +133,7 @@ body.layout-boxed {
     height: 100%;
     overflow-x: hidden;
     overflow-y: hidden;
-    background-color: transparent;
+    background-color: #ffffff;
     position: relative;
 }
 
@@ -150,9 +150,9 @@ body {
     font-size: 1rem;
     font-style: normal;
     font-weight: 400;
-    font-family: "Poppins";
+    font-family: "Poppins",sans-serif;
     line-height: 1.5;
-    background-color: #E4EBF5;
+    background-color: #FFFFFF;
 }
 
 /*---basic---*/
@@ -180,7 +180,7 @@ h6,
 .h4,
 .h5,
 .h6 {
-    font-family: "Poppins";
+    font-family: "Poppins", sans-serif;
     font-weight: 400;
     line-height: 1.2;
 }
@@ -1476,11 +1476,39 @@ code {
     flex-direction: row;
     justify-content: space-around;
 }
+#ebt{
+    height:30px;
+    padding:3px;
+    width:100px;
+    background:white;
+    color:#01429e
+}
+#wbt{
+    height:30px;
+    padding:3px;
+    width:150px;
+    background:white;
+    color:#FE740E;
+}
+#wbt img {
+    width: 18px;
+    color:#FE740E;
+    }
 @media only screen and (max-width: 600px) and (min-width: 360px) {
 #codes{
     display: flex;
     justify-content: space-around;
 }
+#linep{
+    display: none;
+}
+#wbt{
+       width:100px;
+}
+#wbt img {
+    width: 18px;
+    color:#FE740E;
+    }
 .fixed .content-wrapper{
     min-height: 0;
 }
@@ -26946,7 +26974,7 @@ Height property
     min-height: 100%;
     box-shadow: 0px 2px 5px 0px rgba(19, 23, 38, 0.05);
     position: relative;
-    background: #f4f5f9;
+    background: #ffffff;
 }
 
 @media (min-width: 1900px) {
@@ -35725,17 +35753,21 @@ time {
     background-repeat: no-repeat;
     background-size: 0 2px, 100% 1px;
 }
-
+#linep{
+    border-bottom: 2px solid gray;
+    width: 66%;
+    margin-top: 2%;
+}
 .form-element .form-control {
     color: var(--primary-color);
     min-height: 50px;
     padding-left: 10px;
     border-radius: 0;
-    -webkit-box-shadow:var(--neumorphic-shadow);
-    box-shadow: var(--neumorphic-shadow);
+    border: none;
+    border-bottom: 1px solid gray;
     /* box-shadow: inset 0.2rem 0.2rem 0.5rem #c8d0e7, inset -0.2rem -0.2rem 0.5rem #fff; */
     float: none;
-    background: none;
+    background: #ffffff;
 }
 
 .form-element .form-control :focus {
@@ -36310,7 +36342,7 @@ input[type="color"] {
 .form-select {
     border-radius: 5px;
     box-shadow: none;
-    border-color: #86a4c3;
+    border-color: gray;
     height: auto;
 }
 
@@ -40271,7 +40303,7 @@ ul.flexbox {
     padding: 20px;
     position: relative;
     width: 500px;
-    height: 500px;
+    height: 389px;
     background: transparent;
     box-shadow: -10px 10px 10px rgba(0, 0, 0, 0.25);
     border-radius: 11px;

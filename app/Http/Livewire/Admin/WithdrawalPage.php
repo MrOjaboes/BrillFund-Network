@@ -2,12 +2,13 @@
 
 namespace App\Http\Livewire\Admin;
 
+use Livewire\Component;
+use App\Models\Withdrawals;
+use Livewire\WithPagination;
+use App\Models\WithDrawalBan;
 use App\Models\ActivityBalance;
 use App\Models\AffiliateBalance;
-use App\Models\WithDrawalBan;
-use App\Models\Withdrawals;
-use Livewire\Component;
-use Livewire\WithPagination;
+use App\Models\AffiliateHistory;
 
 class WithdrawalPage extends Component
 {
@@ -24,7 +25,7 @@ class WithdrawalPage extends Component
     {
 
         $withdrawal = Withdrawals::find($id);
-        
+
         if ($withdrawal) {
             $withdrawal->status = 1;
             $withdrawal->save();
@@ -41,7 +42,12 @@ class WithdrawalPage extends Component
             'balance' => $balance - $withdrawal->amount,
         ]);
         }
-
+        AffiliateHistory::create([
+            'user_id' => $withdrawal->user_id,
+            'amount' => $withdrawal->amount,
+            'content' => 'Withdrawal',
+            'type' => 'withdrawal',
+        ]);
         return redirect()->back()->with('message','Request Approved Successfully');
     }
     public function deactivate()

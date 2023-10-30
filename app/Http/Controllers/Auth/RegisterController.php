@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Models\Quiz;
 use App\Models\User;
 use App\Models\Wallet;
+use App\Models\History;
 use App\Models\Network;
 use App\Models\Profile;
 use App\Models\Deposits;
@@ -14,11 +16,10 @@ use App\Models\DirectBalance;
 use App\Models\ActivityBalance;
 use App\Models\IndirectBalance;
 use App\Models\AffiliateBalance;
+use App\Models\AffiliateHistory;
 use App\Models\Indirect2Balance;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use App\Models\History;
-use App\Models\Quiz;
 use Illuminate\Support\Facades\Hash;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Validator;
@@ -149,6 +150,12 @@ class RegisterController extends Controller
                 'referal_code' => 'Admin',
                 'parent_user_id' => 1,
             ]);
+            AffiliateHistory::create([
+                'user_id' => auth()->user()->id,
+                'amount' => 3000,
+                'content' => 'Welcome Bonus',
+                'type' => 'wb',
+            ]);
             History::create([
                 'user_id' => $user->id,
                 'content' => $user->name . ' Registered as an Affiliate Today!',
@@ -243,6 +250,12 @@ class RegisterController extends Controller
                     'user_id' => $user->id,
                     'referal_code' => $request->referal_code,
                     'parent_user_id' => $userData[0]['id'],
+                ]);
+                AffiliateHistory::create([
+                    'user_id' => auth()->user()->id,
+                    'amount' => 3000,
+                    'content' => 'Welcome Bonus',
+                    'type' => 'wb',
                 ]);
                 History::create([
                     'user_id' => $user->id,
