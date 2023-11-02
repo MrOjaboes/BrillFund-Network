@@ -91,7 +91,7 @@
 
                                 </td>
 
-                                <td>  {{ \Carbon\Carbon::parse($data->created_at)->format('d D, M Y') }} </td>
+                                <td>  {{ \Carbon\Carbon::parse($data->created_at)->format('h:i:s A d D, M Y') }} </td>
 
                             </tr>
                             {{-- @php

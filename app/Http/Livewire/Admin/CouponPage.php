@@ -15,8 +15,8 @@ class CouponPage extends Component
     public $amount;
     public function render()
     {
-        $coupons = CouponCode::where('user_id',auth()->user()->id)->where('status',0)->orderBy('created_at','DESC')->latest()->paginate(10);
-        return view('livewire.admin.coupon-page',compact('coupons'));
+        $coupons = CouponCode::where('user_id', auth()->user()->id)->where('status', 0)->orderBy('created_at', 'DESC')->latest()->paginate(10);
+        return view('livewire.admin.coupon-page', compact('coupons'));
     }
     public function activateCoupon($id)
     {
@@ -32,7 +32,8 @@ class CouponPage extends Component
         $coupon = CouponCode::find($id);
         if ($coupon) {
             $coupon->status = 0;
-            $coupon->save();        }
+            $coupon->save();
+        }
         return redirect()->back();
     }
     public function generateCode()
@@ -40,22 +41,25 @@ class CouponPage extends Component
         $validated = $this->validate([
             'amount' => 'required',
         ]);
-        $count = CouponCode::count();
-       // dd($count);
-        CouponCode::create([
-            'amount' => $validated['amount'],
-            'naira_equilvalent' => $validated['amount'] * 820,
-            'code' => 'Admin_'.strtoupper(Str::random(10)), //substr(str_shuffle('123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, 10)
-            'user_id' => auth()->user()->id,
-            'user_name' => auth()->user()->name,
-        ]);
+
+        if ($this->amount) {
+            for ($i = 1; $i <= $this->amount; $i++) {
+                CouponCode::create([
+                    'user_id' => auth()->user()->id,
+                    'user_name' => auth()->user()->name,
+                    'amount' => 5000,
+                    'naira_equilvalent' => 5000,
+                    'code' => auth()->user()->name . '_' . strtoupper(Str::random(10)),
+                ]);
+            }
+        }
+
         $this->resetInputFields();
-        return redirect()->back()->with('message','Code generated Successfully');
+        return redirect()->back()->with('message', 'Code generated Successfully');
     }
 
     private function resetInputFields()
     {
         $this->amount = '';
     }
-
 }

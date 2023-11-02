@@ -96,32 +96,32 @@
                             style="padding:30px;border-radius:1.5rem;background: linear-gradient(#D0D0D0A6 100%,#B5B5B500 0%)">
                             <div class="row pt-3" id="hdetails1">
                                 <div class="col-md-6">
-                                    <h4 class="heading">Affiliate Balance</h4>
-                                    <h4 class="text-justify" style="color: #FE740E">{{ $affiliate_balance->total }}</h4>
+                                    <h4 class="heading" style="color:#01429E;">Affiliate Balance</h4>
+                                    <h4 class="text-justify" style="color: #FE740E">{{'$'.$affiliate_balance->total }}</h4>
                                 </div>
                                 <div class="col-md-6">
-                                    <h4 class="heading">Activities Balance</h4>
+                                    <h4 class="heading" style="color:#01429E;">Activities Balance</h4>
                                     <h4 class="text-justify" style="color: #FE740E">{{ $activity_balance . 'BP' }}</h4>
                                 </div>
                             </div>
                             <div class="row" id="hdetails2">
                                 <div class="col-md-6">
-                                    <h4 class="heading">Direct Earnings</h4>
-                                    <h4 class="text-justify" style="color: #FE740E">{{ $direct_balance }}</h4>
+                                    <h4 class="heading" style="color:#01429E;">Direct Earnings</h4>
+                                    <h4 class="text-justify" style="color: #FE740E">{{'$'. $direct_balance }}</h4>
                                 </div>
                                 <div class="col-md-6">
-                                    <h4 class="heading">Indirect Earnings</h4>
-                                    <h4 class="text-justify" style="color: #FE740E">{{ $indirect_balance }}</h4>
+                                    <h4 class="heading" style="color:#01429E;">Indirect Earnings</h4>
+                                    <h4 class="text-justify" style="color: #FE740E">{{'$'. $indirect_balance }}</h4>
                                 </div>
                             </div>
                             <div class="row" id="hdetails3">
                                 <div class="col-md-6">
-                                    <h4 class="heading">Payouts</h4>
-                                    <h4 class="text-justify" style="color: #FE740E">{{ $withdrawal }}</h4>
+                                    <h4 class="heading" style="color:#01429E;">Payouts</h4>
+                                    <h4 class="text-justify" style="color: #FE740E">{{'$'. $withdrawal }}</h4>
                                 </div>
                                 <div class="col-md-6">
-                                    <h4 class="heading">Refered</h4>
-                                    <h4 class="text-justify" style="color: #FE740E">{{ $networks->count() }}</h4>
+                                    <h4 class="heading" style="color:#01429E;">Refered</h4>
+                                    <h4 class="text-justify" style="color: #FE740E">{{$networks->count() }}</h4>
                                 </div>
                             </div>
                         </div>
