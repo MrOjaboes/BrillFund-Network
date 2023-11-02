@@ -16,9 +16,9 @@ class DailyPostPage extends Component
      public function render()
      {
         $current_date = date('Y-m-d');
-         $check =  DailyPost::whereDate('created_at', $current_date)->where('user_id',auth()->user()->id)->first();
-         $posts =  DailyPost::whereDate('created_at', $current_date)->where('status',0)->latest()->paginate(10);
-         // dd($current_date);
+         $check =  DailyPost::whereDate('created_at',$current_date)->get();
+         $posts =  DailyPost::whereDate('created_at',$current_date)->where('status',0)->paginate(10);
+        //dd($check);
 
          return view('livewire.clients.daily-post-page',compact('posts','check'));
      }

@@ -14,11 +14,10 @@
             <div class="content-wrapper">
                 <div class="container">
                     <!-- Main content -->
-                    <div class="row" style="background: linear-gradient(to right,#ffffff, #e76ffa);">
-                        <div class="col-lg-8 col-12 ">
+                    <div class="row" style="background: rgb(255,255,240);background: linear-gradient(45deg, rgba(255,255,240,1) 26%, rgba(220,14,254,1) 59%, rgba(220,14,254,1) 72%, rgba(220,14,254,1) 85%);">
+                        <div class="col-md-8 ">
                             <div class="greetings mb-10 mt-10">
                                 <div>
-
                                     <h1 class="heading"> Welcome Back,
                                         <b style="color: #FE740E">{{ Auth::user()->name }}</b>
                                     </h1>
@@ -28,22 +27,18 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-12">
-                            <div class="ref-box box ">
-                                <div class="box-body">
-                                    <div class="justify-content-start">
-                                        <p class="fw-bolder text-dark">Copy referral link</p>
-                                        <div class="d-flex form-group">
-                                            <input id="myRef" type="text" class="form-control border-0"
-                                                value="{{ Auth::user()->referal_code }}" disabled>
-                                            <button id="copy"
-                                                class="mx-2 waves-effect waves-light btn btn-sm copy-btn">
-                                                <i data-feather="clipboard"></i>
-                                            </button>
-                                        </div>
-                                        <div class="copy-feedback d-none">link copied!</div>
-                                    </div>
+                        <div class="col-md-4">
+                            <div class="justify-content-start mt-5">
+                                <p class="fw-bolder text-dark">your referral link</p>
+                                <div class="d-flex form-group">
+                                    <input id="myRef" type="text" class="form-control border-0 bg-white"
+                                        value="{{ Auth::user()->referal_code }}" disabled>
+                                    <button id="copy"
+                                        class="mx-2 waves-effect waves-light btn btn-sm copy-btn">
+                                        <i data-feather="copy"></i>
+                                    </button>
                                 </div>
+                                <div class="copy-feedback d-none">link copied!</div>
                             </div>
                         </div>
                     </div>
@@ -155,9 +150,9 @@
                                                     <tr>
                                                         <td>
                                                             @if ($data->type == 'withdrawal')
-                                                                <b style="color: red"> {{ $data->content }}</b>
+                                                                <b style="color: #0A094F"> {{ $data->content }}</b>
                                                             @else
-                                                                <b style="color: #18d26b"> {{ $data->content }}</b>
+                                                                <b style="color:#0A094F"> {{ $data->content }}</b>
                                                             @endif
                                                         </td>
                                                         <td>

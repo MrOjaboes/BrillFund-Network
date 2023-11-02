@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTransferInfosTable extends Migration
+class CreateUserPostsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateTransferInfosTable extends Migration
      */
     public function up()
     {
-        Schema::create('transfer_infos', function (Blueprint $table) {
+        Schema::create('user_posts', function (Blueprint $table) {
             $table->id();
-            $table->string('bank')->nullable();
-            $table->string('acct_number')->nullable();
-            $table->string('acct_name')->nullable();
-           $table->integer('user_id')->unsigned()->references('id')->on('users')->onDelete('SET NULL');
+            $table->integer('post_id')->unsigned()->references('id')->on('daily_posts')->onDelete('SET NULL');
+            $table->integer('user_id')->unsigned()->references('id')->on('users')->onDelete('SET NULL');
+            $table->string('status')->default(0);
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ class CreateTransferInfosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('transfer_infos');
+        Schema::dropIfExists('user_posts');
     }
 }

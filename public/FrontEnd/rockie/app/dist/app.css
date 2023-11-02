@@ -36,7 +36,7 @@
     --onsurface: #fff;
     --surface: #18191d;
     --line: #23262f;
-    --text: #000000;
+    --text: #000000
     --bg-image: url(../../assets/images/layout/black-bg.png);
 }
 
@@ -66,6 +66,7 @@ p {
     margin: 0;
     padding: 0;
     letter-spacing: -0.2px;
+
 }
 
 a {
@@ -172,7 +173,7 @@ h6,
     font-size: 20px;
 }
 p {
-    color: #000000;
+    color: #ffffff;
 }
 .fs-21 {
     font-size: 21px;

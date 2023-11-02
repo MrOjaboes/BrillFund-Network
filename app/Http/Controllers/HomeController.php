@@ -17,6 +17,7 @@ use App\Models\AffiliateBalance;
 use App\Models\AffiliateHistory;
 use App\Models\CouponCode;
 use App\Models\Indirect2Balance;
+use App\Models\UserPost;
 use App\Models\WithDrawalBan;
 
 class HomeController extends Controller
@@ -66,33 +67,22 @@ class HomeController extends Controller
     }
     public function dailypost()
     {
+        dd(auth()->user()->userPost());
         return view('Clients.post');
     }
     public function claimDailypost(DailyPost $post)
     {
-        //dd('her');
-        $post->update([
-            'user_status' => 1,
+       // dd('her');
+      UserPost::create([
+            'status' => 1,
             'user_id' => auth()->user()->id,
+            'post_id' => $post->id,
         ]);
         $balance = ActivityBalance::where('user_id', auth()->user()->id)->sum('balance');
-        if (auth()->user()->package_id == 1) { //3500 $7
             ActivityBalance::where('user_id', auth()->user()->id)->update([
-                'balance' => $balance + 0.7,
+                'balance' => $balance + 400,
             ]);
-        } elseif (auth()->user()->package_id == 2) { //5000 $10
-            ActivityBalance::where('user_id', auth()->user()->id)->update([
-                'balance' => $balance + 0.9,
-            ]);
-        } elseif (auth()->user()->package_id == 3) {  //7500 $15
-            ActivityBalance::where('user_id', auth()->user()->id)->update([
-                'balance' => $balance + 0.7,
-            ]);
-        } elseif (auth()->user()->package_id == 4) { //12500 $25
-            ActivityBalance::where('user_id', auth()->user()->id)->update([
-                'balance' => $balance + 0.9,
-            ]);
-        }
+
         return redirect()->back()->with('message', 'Post Claimed Successfully!');
     }
     //Payout Section

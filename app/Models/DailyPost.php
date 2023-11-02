@@ -15,6 +15,9 @@ class DailyPost extends Model
         'link',
         'status',
         'user_status',
-        'user_id'
         ];
+        public function userPost()
+        {
+            return $this->belongsToMany(DailyPost::class, 'user_posts', 'post_id', 'user_id');
+        }
 }

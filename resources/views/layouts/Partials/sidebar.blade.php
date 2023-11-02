@@ -13,22 +13,31 @@
                             <span>Home</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="{{ route('home.generate-code') }}">
-                            <i data-feather="monitor"></i>
-                            <span>Generate Code</span>
-                        </a>
-                    </li>
+                   @if (Auth::user()->user_type == 2)
+                   <li>
+                    <a href="{{ route('home.generate-code') }}">
+                        <i data-feather="monitor"></i>
+                        <span>Generate Code</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('home.codes') }}">
+                        <i data-feather="monitor"></i>
+                        <span>All Codes</span>
+                    </a>
+                </li>
+                   @endif
                     <li>
                         <a href="{{ route('home.p2p') }}">
                             <img src="/FrontEnd/rockie/images/p2p.svg" class=""alt="">
                             <span>P2P Registeration</span>
                         </a>
                     </li>
+
                     <li>
-                        <a href="{{ route('home.codes') }}">
-                            <i data-feather="monitor"></i>
-                            <span>All Codes</span>
+                        <a href="{{ route('home.dailypost') }}">
+                            <img src="/FrontEnd/rockie/images/profile.svg" class=""alt="">
+                            <span>Daily Post</span>
                         </a>
                     </li>
                     <li>
